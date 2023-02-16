@@ -2,26 +2,15 @@ import Image from 'next/image'
 import { useState } from 'react'
 import uniqid from 'uniqid'
 import getRandomCards from '@/js/getRandomCards'
-import getPreflopMatrixPosition from '@/js/getPreflopMatrixPosition'
+import getSolution from '@/js/getSolution'
 import css from '@/scss/Home.module.scss'
 
 export default function Home({ spot }) {
   const [cards, setCards] = useState(getRandomCards())
 
-  function checkAnswerFunction(chosenColor) {
+  function checkAnswerFunction(chosenId) {
     return () => {
-      function getCorrectSolution(color) {
-        let solutionIndex = null
-
-        spot.options.forEach((option, i) => {
-          if (option.color === color) {
-            solutionIndex = i
-          }
-        })
-
-        return solutionIndex
-      }
-      if (getCorrectSolution(chosenColor) === spot.preflopMatrix[getPreflopMatrixPosition(cards)[0]][getPreflopMatrixPosition(cards)[1]]) {
+      if (getSolution(cards, spot) === chosenId) {
         setCards(getRandomCards())
       }
     }
@@ -67,7 +56,7 @@ export default function Home({ spot }) {
         <div className={css.answerButtons}>
           {spot.options.map(option =>
             <div key={uniqid()}>
-              <div onClick={checkAnswerFunction(option.color)}>{option.description}</div>
+              <div onClick={checkAnswerFunction(option.id)}>{option.description}</div>
             </div>
           )}
         </div>
