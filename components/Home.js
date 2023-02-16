@@ -1,25 +1,28 @@
 import Image from 'next/image'
-import css from '../scss/Home.module.scss'
+import uniqid from 'uniqid'
+import css from '@/scss/Home.module.scss'
 
-export default function Home() {
+export default function Home({ spot }) {
+  console.log(spot)
+
   return (
     <div className={css.container}>
       <div className={css.main}>
-        <div className={css.title}>RFI</div>
-        <div className={css.position}>CO</div>
+        <div className={css.title}>{spot.title}</div>
+        <div className={css.position}>{spot.position.toUpperCase()}</div>
         <div className={css.history}>
-          <div>BB</div>
-          <div>SB</div>
-          <div>BTN</div>
-          <div>CO</div>
-          <div>HJ</div>
           <div>UTG</div>
-          <div></div>
-          <div></div>
+          <div>HJ</div>
+          <div>CO</div>
+          <div>BTN</div>
+          <div>SB</div>
+          <div>BB</div>
+          {spot.history.map(action =>
+            <div key={uniqid()}>
+              {action}
+            </div>
+          )}
           <div>-</div>
-          <div>F</div>
-          <div>F</div>
-          <div>F</div>
         </div>
         <div className={css.holeCards}>
           <div>
@@ -28,6 +31,7 @@ export default function Home() {
               alt='Ad'
               width={268}
               height={382}
+              priority
             />
           </div>
           <div>
@@ -36,13 +40,16 @@ export default function Home() {
               alt='3d'
               width={268}
               height={382}
+              priority
             />
           </div>
         </div>
         <div className={css.answerButtons}>
-          <div>fold</div>
-          <div>50% fold | 50% 2.5bb</div>
-          <div>2.5 bb</div>
+          {spot.options.map(option =>
+            <div key={uniqid()}>
+              <div>{option.description}</div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -16,10 +16,10 @@ export default function HomePage({ spotJson }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query: { spotId } }) {
   dbConnect()
 
-  const spot = await Spot.findOne({ id: 0 })
+  const spot = await Spot.findOne({ id: spotId })
 
   return { props: { spotJson: JSON.stringify(spot) } }
 }
