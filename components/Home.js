@@ -1,9 +1,15 @@
 import Image from 'next/image'
+import { useState } from 'react'
 import uniqid from 'uniqid'
+import getRandomCards from '@/js/getRandomCards'
 import css from '@/scss/Home.module.scss'
 
 export default function Home({ spot }) {
-  console.log(spot)
+  const [cards, setCards] = useState(getRandomCards())
+
+  function refreshCards() {
+    setCards(getRandomCards())
+  }
 
   return (
     <div className={css.container}>
@@ -27,8 +33,8 @@ export default function Home({ spot }) {
         <div className={css.holeCards}>
           <div>
             <Image
-              src='/deck/Ad.png'
-              alt='Ad'
+              src={`/deck/${cards[0]}.png`}
+              alt={cards[0]}
               width={268}
               height={382}
               priority
@@ -36,8 +42,8 @@ export default function Home({ spot }) {
           </div>
           <div>
             <Image
-              src='/deck/3d.png'
-              alt='3d'
+              src={`/deck/${cards[1]}.png`}
+              alt={cards[1]}
               width={268}
               height={382}
               priority
@@ -47,7 +53,7 @@ export default function Home({ spot }) {
         <div className={css.answerButtons}>
           {spot.options.map(option =>
             <div key={uniqid()}>
-              <div>{option.description}</div>
+              <div onClick={refreshCards}>{option.description}</div>
             </div>
           )}
         </div>
