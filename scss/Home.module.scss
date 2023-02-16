@@ -14,29 +14,12 @@
   font-size: 8rem;
   color: #333;
 }
-.history {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  text-align: center;
-  div {
-    padding: 5px;
-    color: #888;
-  }
-}
-.holeCards {
-  padding: 20px 0;
-  display: flex;
-  gap: 4px;
-  div {
-    border: 1px solid #bbb;
-  }
-}
 .answerButtons {
   padding: 20px 0;
   display: flex;
   gap: 20px;
-  div > div {
-    padding: 16px 32px;
+  div {
+    padding: 24px 48px;
     color: #b53f3f;
     background: #f5dfdf;
     border-radius: 3px;

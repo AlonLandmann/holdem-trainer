@@ -1,6 +1,7 @@
-import Image from 'next/image'
 import { useState } from 'react'
 import uniqid from 'uniqid'
+import History from './History'
+import HoleCards from './HoleCards'
 import getRandomCards from '@/js/getRandomCards'
 import getSolution from '@/js/getSolution'
 import css from '@/scss/Home.module.scss'
@@ -21,42 +22,15 @@ export default function Home({ spot }) {
       <div className={css.main}>
         <div className={css.title}>{spot.title}</div>
         <div className={css.position}>{spot.position.toUpperCase()}</div>
-        <div className={css.history}>
-          <div>UTG</div>
-          <div>HJ</div>
-          <div>CO</div>
-          <div>BTN</div>
-          <div>SB</div>
-          <div>BB</div>
-          {spot.history.map(action =>
-            <div key={uniqid()}>
-              {action}
-            </div>
-          )}
-          <div>-</div>
-        </div>
-        <div className={css.holeCards}>
-          <div>
-            <Image
-              src={`/deck/${cards[0]}.png`}
-              alt='leftHoleCard'
-              width={268}
-              height={382}
-            />
-          </div>
-          <div>
-            <Image
-              src={`/deck/${cards[1]}.png`}
-              alt='rightHoleCard'
-              width={268}
-              height={382}
-            />
-          </div>
-        </div>
+        <History spot={spot} />
+        <HoleCards cards={cards} />
         <div className={css.answerButtons}>
           {spot.options.map(option =>
-            <div key={uniqid()}>
-              <div onClick={checkAnswerFunction(option.id)}>{option.description}</div>
+            <div
+              key={uniqid()}
+              onClick={checkAnswerFunction(option.id)}
+            >
+              {option.description}
             </div>
           )}
         </div>
