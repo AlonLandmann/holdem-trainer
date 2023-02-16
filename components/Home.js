@@ -8,6 +8,7 @@ import css from '@/scss/Home.module.scss'
 
 export default function Home({ spot }) {
   const [cards, setCards] = useState(getRandomCards())
+  const [log, setLog] = useState([])
 
   useEffect(() => {
     function eventFunction(event) {
@@ -26,13 +27,19 @@ export default function Home({ spot }) {
   function checkAnswerFunction(chosenId) {
     return () => {
       if (getSolution(cards, spot) === chosenId) {
+        setLog(prev => [ <div className={css.correct}>correct</div>, ...prev ].slice(0, 30))
         setCards(getRandomCards())
+      } else {
+        setLog(prev => [ <div className={css.false}>false {cards[0]}{cards[1]}</div>, ...prev ].slice(0, 30))
       }
     }
   }
 
   return (
     <div className={css.container}>
+      <div className={css.menu}>
+
+      </div>
       <div className={css.main}>
         <div className={css.title}>{spot.title}</div>
         <div className={css.position}>{spot.position.toUpperCase()}</div>
@@ -49,6 +56,9 @@ export default function Home({ spot }) {
             </div>
           )}
         </div>
+      </div>
+      <div className={css.log}>
+        {log}
       </div>
     </div>
   )
