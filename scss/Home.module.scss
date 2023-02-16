@@ -18,8 +18,8 @@
   padding: 20px 0;
   display: flex;
   gap: 20px;
-  div {
-    padding: 24px 48px;
+  & > div {
+    padding: 24px 36px;
     color: #b53f3f;
     background: #f5dfdf;
     border-radius: 3px;
@@ -28,6 +28,11 @@
     &:hover {
       color: #fff;
       background: #b53f3f;
+    }
+    display: flex;
+    gap: 24px;
+    .hotkey {
+      opacity: 50%;
     }
   }
 }

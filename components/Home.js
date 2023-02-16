@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import uniqid from 'uniqid'
 import History from './History'
 import HoleCards from './HoleCards'
@@ -8,6 +8,20 @@ import css from '@/scss/Home.module.scss'
 
 export default function Home({ spot }) {
   const [cards, setCards] = useState(getRandomCards())
+
+  useEffect(() => {
+    function eventFunction(event) {
+      spot.options.forEach(option => {
+        if (event.key === option.hotkey) {
+          checkAnswerFunction(option.id)()
+        }
+      })
+    }
+
+    document.addEventListener('keyup', eventFunction)
+
+    return () => document.removeEventListener('keyup', eventFunction)
+  }, [cards])
 
   function checkAnswerFunction(chosenId) {
     return () => {
@@ -30,7 +44,8 @@ export default function Home({ spot }) {
               key={uniqid()}
               onClick={checkAnswerFunction(option.id)}
             >
-              {option.description}
+              <div className={css.hotkey}>{option.hotkey.toUpperCase()}</div>
+              <div>{option.description}</div>
             </div>
           )}
         </div>
