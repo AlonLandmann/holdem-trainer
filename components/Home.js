@@ -6,8 +6,8 @@ import getRandomCards from '@/js/getRandomCards'
 import getSolution from '@/js/getSolution'
 import css from '@/scss/Home.module.scss'
 
-export default function Home({ spot }) {
-  const [cards, setCards] = useState(getRandomCards())
+export default function Home({ spot, holeCards }) {
+  const [cards, setCards] = useState(holeCards)
   const [log, setLog] = useState([])
 
   useEffect(() => {
@@ -27,10 +27,10 @@ export default function Home({ spot }) {
   function checkAnswerFunction(chosenId) {
     return () => {
       if (getSolution(cards, spot) === chosenId) {
-        setLog(prev => [ <div className={css.correct}>correct</div>, ...prev ].slice(0, 30))
+        setLog(prev => [ <div key={uniqid()} className={css.correct}>correct</div>, ...prev ].slice(0, 30))
         setCards(getRandomCards())
       } else {
-        setLog(prev => [ <div className={css.false}>false {cards[0]}{cards[1]}</div>, ...prev ].slice(0, 30))
+        setLog(prev => [ <div key={uniqid()} className={css.false}>false {cards[0]}{cards[1]}</div>, ...prev ].slice(0, 30))
       }
     }
   }
