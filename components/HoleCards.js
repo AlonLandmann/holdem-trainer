@@ -10,6 +10,7 @@ export default function HoleCards({ cards }) {
           alt='leftHoleCard'
           width={268}
           height={382}
+          priority
         />
       </div>
       <div>
@@ -18,6 +19,7 @@ export default function HoleCards({ cards }) {
           alt='rightHoleCard'
           width={268}
           height={382}
+          priority
         />
       </div>
     </div>
