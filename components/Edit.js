@@ -4,22 +4,14 @@ import uniqid from 'uniqid'
 import { cloneDeep } from 'lodash'
 import Matrix from './Matrix'
 import css from '@/scss/Edit.module.scss'
+import { SliderPicker } from 'react-color'
 
 export default function Home({ spot, menu }) {
-  const [formData, setFormData] = useState({ ...spot })
+  const [formData, setFormData] = useState(cloneDeep(spot))
+  const [listener, setListener] = useState(false)
   const router = useRouter()
-  const colors = [
-    '#070000',
-    '#2C2827',
-    '#494240',
-    '#A49A98',
-    '#FAFAFA',
-    '#F4D1C4',
-    '#EEA78E',
-    '#E65244'
-  ]
 
-  useEffect(() => { setFormData({ ...spot }) }, [spot])
+  useEffect(() => { setFormData(cloneDeep(spot)) }, [spot])
 
   function navToSpotFunction(itemId) {
     return () => {
@@ -53,6 +45,31 @@ export default function Home({ spot, menu }) {
         return newFormData
       })
     }
+  }
+  function handleChangeForColorFunction(optionId) {
+    return (event) => {
+      setFormData(prev => {
+        let newFormData = cloneDeep(prev)
+
+        newFormData.options[optionId].color = event.target.value
+
+        return newFormData
+      })
+    }
+  }
+  function handleChangeForMatrix(r, c) {
+    setFormData(prev => {
+      let newFormData = cloneDeep(prev)
+      let currentId = newFormData.preflopMatrix[r][c]
+
+      if (currentId === formData.options.length - 1) {
+        newFormData.preflopMatrix[r][c] = 0
+      } else {
+        newFormData.preflopMatrix[r][c] += 1
+      }
+
+      return newFormData
+    })
   }
 
   return (
@@ -135,7 +152,7 @@ export default function Home({ spot, menu }) {
                     name='color'
                     type='color'
                     value={formData.options[option.id].color}
-                    onChange={handleChangeForOptionFunction(option.id)}
+                    onChange={handleChangeForColorFunction(option.id)}
                   />
                 </div>
               ))}
@@ -143,10 +160,11 @@ export default function Home({ spot, menu }) {
           </div>
           <div className={css.formItem}>
             <div className={css.optionItemDescription}>Matrix</div>
-            <div>
+            <div className={css.matrix}>
               <Matrix
-                spot={spot}
+                spot={formData}
                 colors={formData.options.map(option => option.color)}
+                handleChange={handleChangeForMatrix}
               />
             </div>
           </div>

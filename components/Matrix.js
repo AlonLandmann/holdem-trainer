@@ -2,7 +2,7 @@ import { useState } from 'react'
 import uniqid from 'uniqid'
 import css from '@/scss/Matrix.module.scss'
 
-export default function Matrix({ spot, colors }) {
+export default function Matrix({ spot, colors, handleChange }) {
   const [hoveredRow, setHoveredRow] = useState(null)
   const [hoveredCol, setHoveredCol] = useState(null)
 
@@ -42,6 +42,7 @@ export default function Matrix({ spot, colors }) {
               style={{background: colors[spot.preflopMatrix[r][c]]}}
               onMouseEnter={() => { setHoveredRow(r); setHoveredCol(c) }}
               onMouseLeave={() => { setHoveredRow(null); setHoveredCol(null) }}
+              onClick={() => { handleChange(r, c) }}
             >
 
             </div>
