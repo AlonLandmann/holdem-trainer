@@ -1,15 +1,31 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import uniqid from 'uniqid'
+import { CirclePicker } from 'react-color'
 import { cloneDeep } from 'lodash'
+import uniqid from 'uniqid'
 import Matrix from './Matrix'
 import css from '@/scss/Edit.module.scss'
-import { SliderPicker } from 'react-color'
 
 export default function Home({ spot, menu }) {
   const [formData, setFormData] = useState(cloneDeep(spot))
-  const [listener, setListener] = useState(false)
   const router = useRouter()
+
+  const colors = [
+    '#a6d66f', // green 1
+    '#358532', // green 2
+    '#f5e48e', // yellow 1
+    '#fcd303', // yellow 2
+    '#F4D1C4', // red 1
+    '#EEA78E', // red 2
+    '#E65244', // red 3
+    '#7ccef7', // blue 1
+    '#3c58fa', // blue 2
+    '#ceb6fa', // purple 1
+    '#8047d6', // purple 2
+    '#FAFAFA', // gray 1
+    '#A49A98', // gray 2
+    '#494240', // gray 3
+  ]
 
   useEffect(() => { setFormData(cloneDeep(spot)) }, [spot])
 
@@ -47,11 +63,11 @@ export default function Home({ spot, menu }) {
     }
   }
   function handleChangeForColorFunction(optionId) {
-    return (event) => {
+    return (color, event) => {
       setFormData(prev => {
         let newFormData = cloneDeep(prev)
 
-        newFormData.options[optionId].color = event.target.value
+        newFormData.options[optionId].color = color.hex
 
         return newFormData
       })
@@ -148,11 +164,12 @@ export default function Home({ spot, menu }) {
                     value={formData.options[option.id].hotkey}
                     onChange={handleChangeForOptionFunction(option.id)}
                   />
-                  <input
-                    name='color'
-                    type='color'
-                    value={formData.options[option.id].color}
-                    onChange={handleChangeForColorFunction(option.id)}
+                  <CirclePicker
+                    color={formData.options[option.id].color} $
+                    onChangeComplete={handleChangeForColorFunction(option.id)}
+                    colors={colors}
+                    circleSize={15}
+                    width={220}
                   />
                 </div>
               ))}
