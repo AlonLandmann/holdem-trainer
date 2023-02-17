@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import uniqid from 'uniqid'
 import History from './History'
@@ -6,9 +7,10 @@ import getRandomCards from '@/js/getRandomCards'
 import getSolution from '@/js/getSolution'
 import css from '@/scss/Home.module.scss'
 
-export default function Home({ spot, holeCards }) {
+export default function Home({ spot, menu, holeCards }) {
   const [cards, setCards] = useState(holeCards)
   const [log, setLog] = useState([])
+  const router = useRouter()
 
   useEffect(() => {
     function eventFunction(event) {
@@ -34,11 +36,20 @@ export default function Home({ spot, holeCards }) {
       }
     }
   }
+  function navToFunction(itemId) {
+    return () => {
+      router.push(`/${itemId}`)
+    }
+  }
 
   return (
     <div className={css.container}>
       <div className={css.menu}>
-
+        {menu.map(item => (
+          <div key={uniqid()} onClick={navToFunction(item.id)}>
+            {item.title}
+          </div>
+        ))}
       </div>
       <div className={css.main}>
         <div className={css.title}>{spot.title}</div>

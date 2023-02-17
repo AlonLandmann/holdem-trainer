@@ -4,7 +4,7 @@ import dbConnect from '@/js/dbConnect'
 import Spot from '@/js/Spot'
 import getRandomCards from '@/js/getRandomCards'
 
-export default function HomePage({ spotJson, holeCardsJson }) {
+export default function HomePage({ spotJson, menuJson, holeCardsJson }) {
   return (
     <>
       <Head>
@@ -13,6 +13,7 @@ export default function HomePage({ spotJson, holeCardsJson }) {
       <main>
         <Home
           spot={JSON.parse(spotJson)}
+          menu={JSON.parse(menuJson)}
           holeCards={JSON.parse(holeCardsJson)}
         />
       </main>
@@ -24,10 +25,12 @@ export async function getServerSideProps({ query: { spotId } }) {
   dbConnect()
 
   const spot = await Spot.findOne({ id: spotId })
+  const menu = await Spot.find({}, { id: 1, title: 1 })
 
   return {
     props: {
       spotJson: JSON.stringify(spot),
+      menuJson: JSON.stringify(menu),
       holeCardsJson: JSON.stringify(getRandomCards())
     }
   }
