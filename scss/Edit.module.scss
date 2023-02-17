@@ -43,9 +43,9 @@
     display: flex;
     align-items: center;
     gap: 40px;
-    .itemDescription {
-      width: 200px;
-    }
+  }
+  .itemDescription {
+    min-width: 140px;
   }
   input {
     width: 100%;
@@ -59,6 +59,29 @@
       color: #a96464;
       border: 1px solid #ca9d9d;
     }
+    &[type="color"] {
+      height: 100%;
+      padding: 2px 4px;
+    }
+  }
+  .optionItemDescription {
+    min-width: 140px;
+    padding: 14px 0;
+    align-self: start;
+  }
+  .optionItems {
+    flex-grow: 1;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .optionItem {
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
   }
 }
 .spacer {

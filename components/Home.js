@@ -56,7 +56,7 @@ export default function Home({ spot, menu, holeCards }) {
               {item.title}
             </div>
             <div className={css.itemEdit} onClick={navToEditFunction(item.id)}>
-              <i className='bi bi-pencil-square'></i>
+              <i className='bi bi-pen'></i>
             </div>
           </div>
         ))}
