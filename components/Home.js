@@ -36,9 +36,14 @@ export default function Home({ spot, menu, holeCards }) {
       }
     }
   }
-  function navToFunction(itemId) {
+  function navToSpotFunction(itemId) {
     return () => {
       router.push(`/${itemId}`)
+    }
+  }
+  function navToEditFunction(itemId) {
+    return () => {
+      router.push(`/${itemId}/edit`)
     }
   }
 
@@ -46,8 +51,13 @@ export default function Home({ spot, menu, holeCards }) {
     <div className={css.container}>
       <div className={css.menu}>
         {menu.map(item => (
-          <div key={uniqid()} onClick={navToFunction(item.id)}>
-            {item.title}
+          <div className={css.item} key={uniqid()}>
+            <div className={css.itemTitle} onClick={navToSpotFunction(item.id)}>
+              {item.title}
+            </div>
+            <div className={css.itemEdit} onClick={navToEditFunction(item.id)}>
+              <i className='bi bi-pencil-square'></i>
+            </div>
           </div>
         ))}
       </div>

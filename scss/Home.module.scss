@@ -8,12 +8,16 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  div {
-    color: #bbb;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    &:hover {
-      color: #555;
+  .item {
+    display: flex;
+    justify-content: space-between;
+    .itemTitle, .itemEdit {
+      color: #bbb;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      &:hover {
+        color: #555;
+      }
     }
   }
 }
