@@ -1,0 +1,56 @@
+$gray1: #A49A98;
+$borderStyle: 1px solid $gray1;
+
+.matrix {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-rows: repeat(14, 1fr);
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+@mixin cell {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cornerCell {
+  @include cell;
+  border-top: $borderStyle;
+  border-right: $borderStyle;
+  border-bottom: $borderStyle;
+  border-left: $borderStyle;
+}
+
+.topCell {
+  @include cell;
+  border-top: $borderStyle;
+  border-right: $borderStyle;
+  border-bottom: $borderStyle;
+}
+
+.leftCell {
+  @include cell;
+  border-right: $borderStyle;
+  border-bottom: $borderStyle;
+  border-left: $borderStyle;
+  
+}
+.hovered {
+  background-color: #c8c8c8
+}
+
+.contentCell {
+  @include cell;
+  border-right: $borderStyle;
+  border-bottom: $borderStyle;
+}

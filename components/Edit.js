@@ -2,13 +2,22 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import uniqid from 'uniqid'
 import { cloneDeep } from 'lodash'
-import History from './History'
-import HoleCards from './HoleCards'
+import Matrix from './Matrix'
 import css from '@/scss/Edit.module.scss'
 
 export default function Home({ spot, menu }) {
   const [formData, setFormData] = useState({ ...spot })
   const router = useRouter()
+  const colors = [
+    '#070000',
+    '#2C2827',
+    '#494240',
+    '#A49A98',
+    '#FAFAFA',
+    '#F4D1C4',
+    '#EEA78E',
+    '#E65244'
+  ]
 
   useEffect(() => { setFormData({ ...spot }) }, [spot])
 
@@ -132,7 +141,15 @@ export default function Home({ spot, menu }) {
               ))}
             </div>
           </div>
-
+          <div className={css.formItem}>
+            <div className={css.optionItemDescription}>Matrix</div>
+            <div>
+              <Matrix
+                spot={spot}
+                colors={formData.options.map(option => option.color)}
+              />
+            </div>
+          </div>
         </form>
       </div>
       <div className={css.spacer}>
