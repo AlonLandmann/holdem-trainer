@@ -21,14 +21,6 @@
     }
   }
 }
-// .itemEdit {
-//   color: #ca9d9d;
-//   cursor: pointer;
-//   transition: all 0.35s ease;
-//   &:hover {
-//     color: #581d1d;
-//   }
-// }
 .main {
   flex-grow: 1;
   form {
@@ -77,10 +69,35 @@
   }
   .optionItem {
     display: grid;
-    grid-template-columns: 40px 1fr 1fr 1fr;
+    grid-template-columns: 40px 1fr 1fr 1fr 40px;
     gap: 20px;
     justify-items: center;
     align-items: center;
+  }
+  .addNewOption {
+    align-self: center;
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: #555;
+    background: #eaeaea;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      color: #eaeaea;
+      background: #555;
+    }
+  }
+  .removeOption {
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: #555;
+    background: #eaeaea;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      color: #eaeaea;
+      background: #555;
+    }
   }
   .matrix {
     width: 100%;

@@ -40,10 +40,13 @@ export default function Home({ spot, menu }) {
     }
   }
   function handleChange(event) {
+
+
     setFormData(prev => ({
       ...cloneDeep(prev),
       [event.target.name]: event.target.value
     }))
+
   }
   function handleChangeForArray(event) {
     setFormData(prev => ({
@@ -86,6 +89,47 @@ export default function Home({ spot, menu }) {
 
       return newFormData
     })
+  }
+  function addNewOption() {
+    if (formData.options.length < 14) {
+      setFormData(prev => ({
+        ...cloneDeep(prev),
+        options: [
+          ...prev.options,
+          {
+            id: prev.options.length,
+            color: colors[0],
+            description:
+            'new option',
+            hotkey: ''
+          }
+        ]
+      }))
+    } else {
+      alert('you have reached the maximum number of options')
+    }
+  }
+  function removeOptionFunction(optionId) {
+    return () => {
+      setFormData(prev => {
+        let newFormData = cloneDeep(prev)
+        let arr = []
+
+        for (let i = 0; i < optionId; i += 1) {
+          arr.push(newFormData.options[i])
+        }
+        for (let i = optionId + 1; i < formData.options.length; i += 1) {
+          arr.push({
+            ...cloneDeep(newFormData.options[i]),
+            id: i - 1
+          })
+        }
+
+        newFormData.options = arr
+
+        return newFormData
+      })
+    }
   }
 
   return (
@@ -147,9 +191,9 @@ export default function Home({ spot, menu }) {
           <div className={css.formItem}>
             <div className={css.optionItemDescription}>Options</div>
             <div className={css.optionItems}>
-              {spot.options.map(option => (
+              {formData.options.map(option => (
                 <div className={css.optionItem} key={uniqid()}>
-                  <div>{option.id}</div>
+                  <div>{option.id + 1}</div>
                   <input
                     name='description'
                     type='text'
@@ -171,8 +215,16 @@ export default function Home({ spot, menu }) {
                     circleSize={15}
                     width={220}
                   />
+                  <div className={css.removeOption} onClick={removeOptionFunction(option.id)}>
+                    <i className='bi bi-trash3'></i>
+                  </div>
                 </div>
               ))}
+              {formData.options.length < 14 &&
+                <div className={css.addNewOption} onClick={addNewOption}>
+                  <i className='bi bi-plus-lg'></i>
+                </div>
+              }
             </div>
           </div>
           <div className={css.formItem}>
