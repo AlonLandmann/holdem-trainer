@@ -31,6 +31,22 @@
     padding: 0 80px;
     flex-grow: 1;
   }
+  .submit {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: #555;
+    background: #eaeaea;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      color: #eaeaea;
+      background: #555;
+    }
+  }
   .formItem {
     display: flex;
     align-items: center;

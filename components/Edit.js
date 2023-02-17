@@ -4,6 +4,7 @@ import { CirclePicker } from 'react-color'
 import { cloneDeep } from 'lodash'
 import uniqid from 'uniqid'
 import Matrix from './Matrix'
+import { dbUpdate } from '@/js/dbUpdate'
 import css from '@/scss/Edit.module.scss'
 
 export default function Home({ spot, menu }) {
@@ -29,6 +30,9 @@ export default function Home({ spot, menu }) {
 
   useEffect(() => { setFormData(cloneDeep(spot)) }, [spot])
 
+  function handleSubmit() {
+    dbUpdate(formData)
+  }
   function navToSpotFunction(itemId) {
     return () => {
       router.push(`/${itemId}`)
@@ -51,7 +55,7 @@ export default function Home({ spot, menu }) {
   function handleChangeForArray(event) {
     setFormData(prev => ({
       ...cloneDeep(prev),
-      [event.target.name]: event.target.value.split(', ')
+      [event.target.name]: event.target.value === '' ? [] : event.target.value.split(', ')
     }))
   }
   function handleChangeForOptionFunction(optionId) {
@@ -148,6 +152,9 @@ export default function Home({ spot, menu }) {
       </div>
       <div className={css.main}>
         <form>
+          <div className={css.submit} onClick={handleSubmit}>
+            Save
+          </div>
           <div className={css.formItem}>
             <div className={css.itemDescription}>Title</div>
             <input

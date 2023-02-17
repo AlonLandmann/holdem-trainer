@@ -43,12 +43,16 @@
     padding: 24px 36px;
     color: #b53f3f;
     background: #f5dfdf;
+    // color: #555;
+    // background: #ddd;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 1s ease;
+    transition: all 0.8s ease;
     &:hover {
       color: #fff;
       background: #b53f3f;
+      // color: #ddd;
+      // background: #555;
     }
     display: flex;
     gap: 24px;

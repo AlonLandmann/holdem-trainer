@@ -12,6 +12,35 @@ export default function Home({ spot, menu, holeCards }) {
   const [log, setLog] = useState([])
   const router = useRouter()
 
+  const colorMap = [
+    ['#a6d66f', '#344520'], // green 1
+    ['#358532', '#031a02'], // green 2
+    ['#f5e48e', '#544a17'], // yellow 1
+    ['#fcd303', '#70600d'], // yellow 2
+    ['#F4D1C4', '#7a2d10'], // red 1
+    ['#EEA78E', '#611d05'], // red 2
+    ['#E65244', '#5c1009'], // red 3
+    ['#7ccef7', '#7ccef7'], // blue 1
+    ['#3c58fa', '#07114a'], // blue 2
+    ['#ceb6fa', '#321b5c'], // purple 1
+    ['#8047d6', '#230b47'], // purple 2
+    ['#FAFAFA', '#4f4f4f'], // gray 1
+    ['#A49A98', '#363534'], // gray 2
+    ['#494240', '#FAFAFA'], // gray 3
+  ]
+
+  function getTextColor(backgroundColor) {
+    let index = 0
+
+    for (let i = 0; i < colorMap.length; i += 1) {
+      if (colorMap[i][0] === backgroundColor) {
+        index = i
+      }
+    }
+
+    return colorMap[index][1]
+  }
+
   useEffect(() => {
     function eventFunction(event) {
       spot.options.forEach(option => {
@@ -71,6 +100,10 @@ export default function Home({ spot, menu, holeCards }) {
             <div
               key={uniqid()}
               onClick={checkAnswerFunction(option.id)}
+              // style={{
+              //   color: getTextColor(option.color),
+              //   background: option.color
+              // }}
             >
               <div className={css.hotkey}>{option.hotkey.toUpperCase()}</div>
               <div>{option.description}</div>
