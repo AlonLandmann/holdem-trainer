@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+  min-height: calc(100vh - 58px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+  background: #222;
+
+  img {
+    opacity: 15%;
+  }
+}
+
+.content {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 18px;
+    max-width: 500px;
+    font-size: 40px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  h3 {
+    margin-bottom: 28px;
+    max-width: 500px;
+    font-weight: 400;
+    color: #ccc;
+  }
+
+  @media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+  }
+}
