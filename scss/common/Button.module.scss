@@ -51,6 +51,18 @@
   }
 }
 
+.dark {
+  @include button;
+  border: 1px solid #4f4f4f;
+  color: #fff;
+  background: #4f4f4f;
+
+  &:hover {
+    border: 1px solid #5d5d5d;
+    background: #5d5d5d;
+  }
+}
+
 .gray {
   @include button;
   border: 1px solid #e8e8e8;

@@ -11,7 +11,7 @@ export default function Hero() {
     <div className={css.container}>
       <div className={css.image}>
         <Image
-          src='/hero1.jpg'
+          src='/hero.jpg'
           alt='poker-image'
           priority
           fill

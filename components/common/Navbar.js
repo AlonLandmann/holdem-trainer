@@ -36,7 +36,7 @@ export default function Navbar({ user }) {
         </div>
         {!user &&
           <div className={css.auth}>
-            <Button theme='gray' onClick={handleLogin}>
+            <Button theme='dark' onClick={handleLogin}>
               Log in
             </Button>
           </div>
