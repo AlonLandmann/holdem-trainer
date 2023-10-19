@@ -1,12 +1,7 @@
 import Image from 'next/image'
-import Button from '/components/common/Button'
 import css from '@/scss/home/Hero.module.scss'
 
 export default function Hero() {
-  const handleSignUp = () => {
-    location.replace('/signup')
-  }
-
   return (
     <div className={css.container}>
       <div className={css.image}>
