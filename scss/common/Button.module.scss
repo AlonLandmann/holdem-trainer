@@ -1,0 +1,78 @@
+@mixin button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  i {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+}
+
+.primary {
+  @include button;
+  border: 1px solid #ce5252;
+  color: #fff;
+  background: #ce5252;
+
+  &:hover {
+    border: 1px solid #e67f7f;
+    background: #e67f7f;
+  }
+}
+
+.light {
+  @include button;
+  border: 1px solid #fbdfdf;
+  color: #d57878;
+  background: #fbdfdf;
+
+  &:hover {
+    border: 1px solid #d57878;
+    color: #fff;
+    background: #d57878;
+  }
+}
+
+.white {
+  @include button;
+  border: 1px solid #fbdfdf;
+  color: #d57878;
+  background: #fff;
+
+  &:hover {
+    border: 1px solid #d57878;
+    color: #fff;
+    background: #d57878;
+  }
+}
+
+.gray {
+  @include button;
+  border: 1px solid #e8e8e8;
+  color: #4f4f4f;
+  background: #e8e8e8;
+
+  &:hover {
+    border: 1px solid #4f4f4f;
+    color: #fff;
+    background: #4f4f4f;
+  }
+}
+
+.gray-white {
+  @include button;
+  border: 1px solid #d8d8d8;
+  color: #4f4f4f;
+  background: #fff;
+
+  &:hover {
+    border: 1px solid #4f4f4f;
+    color: #fff;
+    background: #4f4f4f;
+  }
+}

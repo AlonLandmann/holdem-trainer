@@ -1,0 +1,95 @@
+.root {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+
+.form {
+  width: min(400px, 100%);
+  padding: 40px 50px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+
+  label {
+    align-self: flex-start;
+    margin-bottom: 3px;
+    margin-left: 2px;
+    font-size: 15px;
+    color: #555;
+  }
+  
+  input {
+    align-self: stretch;
+    margin-bottom: 12px;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+}
+
+.logo {
+  margin-bottom: 10px;
+
+  i {
+    font-size: 70px;
+    color: #eaeaea;
+  }
+}
+
+.heading {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.instructions {
+  margin-bottom: 30px;
+  font-size: 14px;
+  text-align: center;
+  color: #aaa;
+}
+
+.redirect {
+  margin-top: 45px;
+  margin-bottom: -10px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.link {
+  font-size: 13px;
+  color: #e67f7f;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    color: #e5aaaa;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .root {
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .form {
+    padding: 30px 40px;
+
+    label {
+      font-size: 14px;
+    }
+  }
+
+  .redirect {
+    margin-bottom: -5px;
+  }
+}

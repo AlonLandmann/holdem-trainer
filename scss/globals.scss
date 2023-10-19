@@ -11,3 +11,38 @@ body {
   font-family: 'Red Hat Display', sans-serif;
   color: #222;
 }
+
+input,
+select {
+  min-width: 0;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  appearance: none;
+
+  &::placeholder {
+    color: #ccc;
+  }
+
+  &:focus {
+    border: 1px solid #ce5252;
+    outline: 1px solid #ce5252;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
+}
+
+a {
+  font-size: inherit;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}

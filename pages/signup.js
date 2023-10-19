@@ -1,17 +1,17 @@
 import Head from 'next/head'
-import HomeRoot from '@/components/home/HomeRoot'
+import SignupRoot from '@/components/auth/SignupRoot'
 
-export default function HomePage() {
+export default function SignupPage() {
   return (
     <>
       <Head>
-        <title>Holdem Trainer</title>
+        <title>Signup</title>
         <link rel='icon' href='/favicon.svg' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
       <main>
-        <HomeRoot />
+        <SignupRoot />
       </main>
     </>
   )
