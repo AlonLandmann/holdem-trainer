@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Navbar from '@/components/common/Navbar'
+import Gallery from '@/components/ranges/Gallery'
 import useAuth from '@/hooks/useAuth'
 
 export default function RangesRoot() {
@@ -16,6 +17,7 @@ export default function RangesRoot() {
   return (
     <div>
       <Navbar user={user} />
+      <Gallery user={user} />
     </div>
   )
 }
