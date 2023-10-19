@@ -4,7 +4,9 @@ import css from '@/scss/ranges/Gallery.module.scss'
 export default function Gallery({ user }) {
   return (
     <div className={css.container}>
-      <Matrix range={user.ranges[0]} />
+      {user.ranges.map(range => (
+        <Matrix range={range} />
+      ))}
     </div>
   )
 }
