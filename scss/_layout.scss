@@ -1,0 +1,11 @@
+@mixin section {
+  width: min(100%, 1350px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 40px;
+
+  @media only screen and (max-width: 768px) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}

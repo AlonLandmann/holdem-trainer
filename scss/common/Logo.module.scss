@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  i {
+    font-size: 22px;
+    color: #ce5252;
+    transition: all 0.15s ease;
+  }
+
+  &:hover {
+    color: #aaa;
+
+    i {
+      color: #f6bcbc;
+    }
+  }
+}
+
+.logoText {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
