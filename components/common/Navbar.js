@@ -30,21 +30,21 @@ export default function Navbar({ user }) {
         <div onClick={() => { location.replace('/') }}>
           <Logo />
         </div>
-        <div className={css.navLinks}>
-          <nav><Link href='/drills'>drills</Link></nav>
-          <nav><Link href='/spots'>spots</Link></nav>
+        <div className={css.navs}>
+          <nav><Link href='/training'>training</Link></nav>
+          <nav><Link href='/ranges'>ranges</Link></nav>
         </div>
         {!user &&
           <div className={css.auth}>
-            <Button theme='light' onClick={handleLogin}>
+            <Button theme='gray' onClick={handleLogin}>
               Log in
             </Button>
           </div>
         }
         {user &&
           <div className={css.auth}>
-            <Button theme='white' onClick={handleLogout}>
-              Logout
+            <Button theme='gray-white' onClick={handleLogout}>
+              Log out
             </Button>
           </div>
         }

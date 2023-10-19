@@ -1,42 +1,39 @@
-@use '@/scss/layout';
-
 .container {
   position: sticky;
   top: 0px;
-  z-index: 100;
-  box-shadow: 0 0 3px #ccc;
-  background: #fff;
+  z-index: 10;
+  font-weight: 500;
 }
 
 .content {
-  @include layout.section;
-  height: 65px;
+  padding: 0px 25px;
+  height: 58px;
   display: flex;
   align-items: center;
 }
 
-.navLinks {
+.navs {
   margin-left: auto;
+  margin-right: 40px;
   display: flex;
   gap: 30px;
-
-  @media only screen and (max-width: 480px) {
-    gap: 15px;
-  }
+  color: #444;
 
   nav {
-    transition: all 0.15s ease;
     cursor: pointer;
+    transition: all 0.15s ease;
 
     &:hover {
       color: #aaa;
     }
   }
+
+  @media only screen and (max-width: 480px) {
+    gap: 15px;
+  }
 }
 
 .auth {
-  margin-left: 40px;
-
   @media only screen and (max-width: 480px) {
     margin-left: 25px;
   }
