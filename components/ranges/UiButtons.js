@@ -7,7 +7,7 @@ export default function UiButtons({ saveChanges }) {
       <Tooltip arrow title='save changes' placement='top' enterDelay={500}>
         <div onClick={saveChanges}><i className='bi bi-floppy'></i></div>
       </Tooltip>
-      <Tooltip arrow title='edit range' placement='top' enterDelay={500}>
+      <Tooltip arrow title='edit range details' placement='top' enterDelay={500}>
         <div><i className='bi bi-pen'></i></div>
       </Tooltip>
       <Tooltip arrow title='delete range' placement='top' enterDelay={500}>
