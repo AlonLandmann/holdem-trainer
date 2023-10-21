@@ -1,7 +1,22 @@
 .name {
+  margin-bottom: 1px;
   padding: 7px 10px;
   border-radius: 2px 2px 0px 0px;
   color: #f8f8f8;
   background-color: #484848;
   font-size: 15px;
+}
+
+.matrix {
+  margin-bottom: 4px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.legend>div {
+  padding: 2px 4px;
+  font-size: 14px;
 }
