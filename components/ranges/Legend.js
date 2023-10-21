@@ -9,7 +9,6 @@ export default function Legend({ range }) {
           <div
             key={uuid()}
             style={{
-              border: `1px solid ${fontColors[option.color]}33`,
               color: fontColors[option.color],
               backgroundColor: option.color
             }}
