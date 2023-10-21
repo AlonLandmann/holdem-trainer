@@ -33,7 +33,7 @@ export default function RangeCard({ user, range }) {
       </div>
       <div className={css.bottom}>
         <Legend range={formData} />
-        <UiButtons saveChanges={handleSaveChanges} />
+        <UiButtons range={formData} saveChanges={handleSaveChanges} />
       </div>
     </div>
   )
