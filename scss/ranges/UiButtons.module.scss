@@ -1,12 +1,12 @@
 .container {
-  padding: 4px 8px;
+  align-self: flex-start;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
   font-size: 14px;
   color: #aaa;
 
   & div {
+    padding: 4px 8px;
     cursor: pointer;
     transition: all 0.15s ease;
 
