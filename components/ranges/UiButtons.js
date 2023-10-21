@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router'
 import Tooltip from '@mui/material/Tooltip'
 import css from '@/scss/ranges/UiButtons.module.scss'
 
 export default function UiButtons({ range, saveChanges }) {
+  const router = useRouter()
+
   return (
     <div className={css.container}>
       <Tooltip arrow title='save changes' placement='top' enterDelay={500}>
@@ -10,7 +13,7 @@ export default function UiButtons({ range, saveChanges }) {
         </div>
       </Tooltip>
       <Tooltip arrow title='edit range details' placement='top' enterDelay={500}>
-        <div onClick={() => { location.replace(`/ranges/${range.id}`) }}>
+        <div onClick={() => { router.push(`/ranges/${range.id}`) }}>
           <i className='bi bi-pen'></i>
         </div>
       </Tooltip>
