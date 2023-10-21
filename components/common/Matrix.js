@@ -3,18 +3,18 @@ import { cloneDeep } from 'lodash'
 import { fontColors } from '@/lib/colors'
 import css from '@/scss/common/Matrix.module.scss'
 
-export default function Matrix({ range, setFormData }) {
+export default function Matrix({ range, setRange }) {
   const labels = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
   const indices = range.options.map(option => option.index)
   const colors = range.options.map(option => option.color)
 
   const handleCellChange = (r, c) => {
-    setFormData(prev => {
-      const newFormData = cloneDeep(prev)
+    setRange(prev => {
+      const newRange = cloneDeep(prev)
 
-      newFormData.matrix[r][c] = (newFormData.matrix[r][c] + 1) % indices.length
+      newRange.matrix[r][c] = (newRange.matrix[r][c] + 1) % indices.length
 
-      return newFormData
+      return newRange
     })
   }
 

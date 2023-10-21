@@ -6,7 +6,11 @@ export default function Gallery({ user }) {
   return (
     <div className={css.container}>
       {user.ranges.map(range => (
-        <RangeCard key={uuid()} range={range} />
+        <RangeCard
+          key={uuid()}
+          user={user}
+          range={range}
+        />
       ))}
     </div>
   )
