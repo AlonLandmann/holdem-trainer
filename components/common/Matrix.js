@@ -9,13 +9,13 @@ export default function Matrix({ range, setFormData }) {
   const colors = range.options.map(option => option.color)
 
   const handleCellChange = (r, c) => {
-    if (setFormData) {
-      setFormData(prev => {
-        const newFormData = cloneDeep(prev)
+    setFormData(prev => {
+      const newFormData = cloneDeep(prev)
 
-        return newFormData.matrix[r][c] = (newFormData.matrix[r][c] + 1) % indices.length
-      })
-    }
+      newFormData.matrix[r][c] = (newFormData.matrix[r][c] + 1) % indices.length
+
+      return newFormData
+    })
   }
 
   return (
