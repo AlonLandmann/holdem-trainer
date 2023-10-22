@@ -1,5 +1,4 @@
 import { cloneDeep } from 'lodash'
-import { v4 as uuid } from 'uuid'
 import Button from '@/components/common/Button'
 import ColorPicker from '@/components/range-editor/ColorPicker'
 import { colors } from '@/lib/colors'

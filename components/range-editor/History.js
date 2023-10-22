@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import css from '@/scss/range-editor/History.module.scss'
 import { getPositions } from '@/lib/positions'
 
@@ -38,7 +37,7 @@ export default function History({ range }) {
     <div className={css.container} style={{ gridTemplateColumns: `repeat(${range.nrPlayers}, auto)` }}>
       {positions.map(position =>
         <div
-          key={uuid()}
+          key={position}
           className={`${css.positionCell} ${position === range.position ? css.activePosition : null}`}
         >
           {position}
@@ -46,7 +45,7 @@ export default function History({ range }) {
       )}
       {adjustHistory(range.history).map((action, i) =>
         <div
-          key={uuid()}
+          key={i}
           className={`
             ${action ? css.actionCell : css.emptyCell}
             ${i % range.nrPlayers === positions.indexOf(range.position) ? css.activePosition : null}

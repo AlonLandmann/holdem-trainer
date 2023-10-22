@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { v4 as uuid } from 'uuid'
 import { cloneDeep } from 'lodash'
 import Button from '@/components/common/Button'
 import Matrix from '@/components/common/Matrix'
@@ -102,7 +101,7 @@ export default function RangeEditor({ user, range, setRange }) {
             onChange={handleChange}
           >
             {getPositions(range.nrPlayers).map(position => (
-              <option key={uuid()} value={position}>{position}</option>
+              <option key={`${range.nrPlayers}${position}`} value={position}>{position}</option>
             ))}
           </select>
           <Label

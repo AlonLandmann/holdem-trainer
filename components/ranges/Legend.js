@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import { fontColors } from '@/lib/colors'
 import css from '@/scss/ranges/Legend.module.scss'
 
@@ -7,7 +6,7 @@ export default function Legend({ range }) {
     <div className={css.container}>
         {range.options.slice(1).reverse().map(option => (
           <div
-            key={uuid()}
+            key={option.index}
             style={{
               color: fontColors[option.color],
               backgroundColor: option.color

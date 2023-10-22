@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { v4 as uuid } from 'uuid'
 import RangeCard from '@/components/ranges/RangeCard'
 import css from '@/scss/ranges/Folder.module.scss'
 
@@ -25,7 +24,7 @@ export default function Folder({ user, folder }) {
         <div className={css.ranges}>
           {folder.ranges.map(range => (
             <RangeCard
-              key={uuid()}
+              key={range.id}
               user={user}
               range={range}
             />

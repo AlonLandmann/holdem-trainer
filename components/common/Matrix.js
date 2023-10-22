@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import { cloneDeep } from 'lodash'
 import { fontColors } from '@/lib/colors'
 import css from '@/scss/common/Matrix.module.scss'
@@ -26,10 +25,10 @@ export default function Matrix({ range, setRange, maxWidth }) {
   return (
     <div className={css.container} style={style}>
       {labels.map((_, r) => (
-        <div key={uuid()} className={css.row}>
+        <div key={`r${r}`} className={css.row}>
           {labels.map((_, c) => (
             <div
-              key={uuid()}
+              key={`r${r}c${c}`}
               className={css.cell}
               onClick={() => { handleCellChange(r, c) }}
               style={{
