@@ -21,7 +21,7 @@ export default function RangeEditor({ user, range, setRange }) {
     <div className={css.container}>
       <div className={css.title}>{range.name}</div>
       <div className={css.saveButton}>
-        <Button large theme='simple' icon='floppy'>save changes</Button>
+        <Button large theme='gray-white' icon='floppy'>save changes</Button>
       </div>
       <form className={css.form}>
         <div className={css.metaData}>
