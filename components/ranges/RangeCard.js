@@ -24,21 +24,23 @@ export default function RangeCard({ user, range }) {
   }
 
   return (
-    <div>
-      <div className={css.name}>
-        {formData.name}
+    <div className={css.container}>
+      <div>
+        <div className={css.name}>
+          {formData.name}
+        </div>
+        <div className={css.matrix}>
+          <Matrix range={formData} setRange={setFormData} />
+        </div>
+        <div className={css.legend}>
+          <Legend range={formData} />
+        </div>
       </div>
-      <div className={css.matrix}>
-        <Matrix range={formData} setRange={setFormData} />
-      </div>
-      <div className={css.bottom}>
-        <Legend range={formData} />
-        <UiButtons
-          user={user}
-          range={formData}
-          handleSaveChanges={handleSaveChanges}
-        />
-      </div>
+      <UiButtons
+        user={user}
+        range={formData}
+        handleSaveChanges={handleSaveChanges}
+      />
     </div>
   )
 }

@@ -24,16 +24,16 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
 
-  @media only screen and (max-width: 1400px)  {
+  @media only screen and (max-width: 1505px)  {
     padding: 20px 10px;
     gap: 30px;
   }
 
-  @media only screen and (max-width: 1360px) {
+  @media only screen and (max-width: 1465px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media only screen and (max-width: 930px) {
+  @media only screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
   }
 }

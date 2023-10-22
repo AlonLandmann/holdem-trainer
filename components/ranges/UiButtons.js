@@ -29,17 +29,17 @@ export default function UiButtons({ user, range, handleSaveChanges }) {
 
   return (
     <div className={css.container}>
-      <Tooltip arrow title='save changes' placement='top' enterDelay={500}>
+      <Tooltip arrow title='save changes' placement='right' enterDelay={500}>
         <div onClick={handleSaveChanges}>
           <i className='bi bi-floppy'></i>
         </div>
       </Tooltip>
-      <Tooltip arrow title='edit range details' placement='top' enterDelay={500}>
+      <Tooltip arrow title='edit range details' placement='right' enterDelay={500}>
         <div onClick={handleEdit}>
           <i className='bi bi-pen'></i>
         </div>
       </Tooltip>
-      <Tooltip arrow title='delete range' placement='top' enterDelay={500}>
+      <Tooltip arrow title='delete range' placement='right' enterDelay={500}>
         <div onClick={handleDelete}>
           <i className='bi bi-trash3'></i>
         </div>

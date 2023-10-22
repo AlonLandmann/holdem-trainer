@@ -42,7 +42,7 @@ export default function RangeEditor({ user, range, setRange }) {
       }
     }
 
-    putUser(user.email, updatedUser, () => { location.reload() })
+    putUser(user.email, updatedUser, () => { location.replace('/ranges') })
   }
 
   return (
@@ -64,6 +64,17 @@ export default function RangeEditor({ user, range, setRange }) {
             name='name'
             type='text'
             value={range.name}
+            onChange={handleChange}
+          />
+          <Label
+            htmlFor='folder'
+            text='Collection'
+          />
+          <input
+            id='folder'
+            name='folder'
+            type='text'
+            value={range.folder}
             onChange={handleChange}
           />
           <Label
@@ -114,7 +125,6 @@ export default function RangeEditor({ user, range, setRange }) {
         </div>
         <div>
           <Label
-            htmlFor='strategy'
             text='Strategy'
             tooltip={'This matrix contains all possible starting hands in Texas Hold\'em. The combinations on the top-right represent suited hands, meaning both cards are of the same suit. The combinations on the bottom-left represent all the off-suit hands. Click on a cell to alter the desired answer for the corresponding starting hand by cycling through the options determined above. Since the matrix represents the solution to what you are meant to train, it will not be displayed during training.'}
           />
@@ -126,7 +136,6 @@ export default function RangeEditor({ user, range, setRange }) {
         </div>
         <div>
           <Label
-            htmlFor='options'
             text='Options'
             tooltip='This is the legend for the solution matrix below. Decide which options are available for your actions at this spot. Every option provided here can be given as a solution for specific hands in the matrix below. You can click on the color selectors to change the colors of the different options. The "not in range" option is always given.'
           />
