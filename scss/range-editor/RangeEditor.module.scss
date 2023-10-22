@@ -1,8 +1,24 @@
 .container {
-  min-height: calc(100vh - 58px);
-  padding: 60px 40px;
+  padding: 30px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.metaData {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+
+  input, select {
+    margin-bottom: 16px;
+  }
 }

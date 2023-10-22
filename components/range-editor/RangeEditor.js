@@ -1,5 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import Matrix from '@/components/common/Matrix'
+import Label from '@/components/range-editor/Label'
 import Options from '@/components/range-editor/Options'
 import History from '@/components/range-editor/History'
 import { getPositions } from '@/lib/positions'
@@ -16,52 +17,91 @@ export default function RangeEditor({ user, range, setRange }) {
   }
 
   return (
-    <form className={css.container}>
-      <input
-        id='name'
-        name='name'
-        type='text'
-        value={range.name}
-        onChange={handleChange}
-      />
-      <select
-        id='nrPlayers'
-        name='nrPlayers'
-        value={range.nrPlayers}
-        onChange={handleChange}
-      >
-        <option value='6'>6 max</option>
-        <option value='9'>9 full-ring</option>
-      </select>
-      <select
-        id='position'
-        name='position'
-        value={range.position}
-        onChange={handleChange}
-      >
-        {getPositions(range.nrPlayers).map(position => (
-          <option key={uuid()} value={position}>{position}</option>
-        ))}
-      </select>
-      <input
-        id='history'
-        name='history'
-        type='text'
-        value={range.history}
-        onChange={handleChange}
-      />
-      <History
-        range={range}
-      />
-      <Matrix
-        range={range}
-        setRange={setRange}
-        maxWidth={440}
-      />
-      <Options
-        range={range}
-        setRange={setRange}
-      />
-    </form>
+    <div className={css.container}>
+      <div className={css.title}>{range.name}</div>
+      <form className={css.form}>
+        <div className={css.metaData}>
+          <Label
+            htmlFor='name'
+            text='Name'
+          />
+          <input
+            id='name'
+            name='name'
+            type='text'
+            value={range.name}
+            onChange={handleChange}
+          />
+          <Label
+            htmlFor='nrPlayers'
+            text='Number of  players'
+          />
+          <select
+            id='nrPlayers'
+            name='nrPlayers'
+            value={range.nrPlayers}
+            onChange={handleChange}
+          >
+            <option value='6'>6 max</option>
+            <option value='9'>9 full-ring</option>
+          </select>
+          <Label
+            htmlFor='position'
+            text='Your position'
+            tooltip='Your position in the hand. SB and BB stand for the small blind and big blind respectively. UTG stands for Under The Gun and refers to the first player to act. UTG sits after the big blind. For full ring UTG1 is this player and UTG2 is the next to act. Full ring also features MP1 and MP2 which are the next two players sitting in middle position. HJ stands for the Hijack which sits two seats before the dealer, and CO is the cutoff, who sits right before the dealer. BTN stands for the player with the dealer button.'
+          />
+          <select
+            id='position'
+            name='position'
+            value={range.position}
+            onChange={handleChange}
+          >
+            {getPositions(range.nrPlayers).map(position => (
+              <option key={uuid()} value={position}>{position}</option>
+            ))}
+          </select>
+          <Label
+            htmlFor='history'
+            text='History'
+            tooltip='Enter, separated by commas and spaces (, ) the history of player actions that have led to this spot. All actions except folds can be named whatever you like, but folds must be indicated by an upper-case F. Note, that opponents who have folded can no longer take any actions.'
+          />
+          <input
+            id='history'
+            name='history'
+            type='text'
+            value={range.history}
+            onChange={handleChange}
+          />
+          <div className={css.history}>
+            <History
+              range={range}
+            />
+          </div>
+        </div>
+        <div>
+          <Label
+            htmlFor='strategy'
+            text='Strategy'
+            tooltip={'This matrix contains all possible starting hands in Texas Hold\'em. The combinations on the top-right represent suited hands, meaning both cards are of the same suit. The combinations on the bottom-left represent all the off-suit hands. Click on a cell to alter the desired answer for the corresponding starting hand by cycling through the options determined above. Since the matrix represents the solution to what you are meant to train, it will not be displayed during training.'}
+          />
+          <Matrix
+            range={range}
+            setRange={setRange}
+            maxWidth={440}
+          />
+        </div>
+        <div>
+          <Label
+            htmlFor='options'
+            text='Options'
+            tooltip='This is the legend for the solution matrix below. Decide which options are available for your actions at this spot. Every option provided here can be given as a solution for specific hands in the matrix below. You can click on the color selectors to change the colors of the different options. The "not in range" option is always given.'
+          />
+          <Options
+            range={range}
+            setRange={setRange}
+          />
+        </div>
+      </form>
+    </div>
   )
 }

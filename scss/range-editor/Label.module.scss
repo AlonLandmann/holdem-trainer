@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  padding: 8px;
+  font-weight: 500;
+
+  i {
+    margin-left: 12px;
+    font-size: 14px;
+    color: #ccc;
+    transition: all 0.15s ease-in-out;
+    cursor: help;
+
+    &:hover {
+      color: #aaa;
+    }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: -6px;
+  left: 150px;
+  width: 400px;
+  padding: 15px 25px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 14px;
+  background: rgb(54, 54, 54);
+  box-shadow: 0 0 5px #ccc;
+}
