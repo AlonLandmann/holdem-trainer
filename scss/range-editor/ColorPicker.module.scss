@@ -1,0 +1,32 @@
+.chosenColor {
+  width: calc(7 * 16px + 6 * 4px);
+  height: 42px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 2px #aaa;
+  cursor: pointer;
+
+  &.disabled {
+    box-shadow: 0 0 1px #aaa;
+    cursor: default;
+  }
+}
+
+.colorGrid {
+  width: calc(7 * 16px + 6 * 4px);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.colorOption {
+  min-width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selected {
+  box-shadow: 0 0 2px #aaa;
+}

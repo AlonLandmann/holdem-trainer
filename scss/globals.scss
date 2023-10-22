@@ -28,8 +28,8 @@ select {
   }
 
   &:focus {
-    border: 1px solid #ce5252;
-    outline: 1px solid #ce5252;
+    border: 1px solid #ddd;
+    outline: 1px solid #ddd;
 
     &::placeholder {
       color: #fff;

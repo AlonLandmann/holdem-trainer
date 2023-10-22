@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: 50px auto 1fr 50px;
+  align-items: center;
+  gap: 10px;
+}
+
+.index {
+  text-align: center;
+  color: #aaa;
+}
+
+.remove {
+  text-align: center;
+  color: #aaa;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: hsl(0, 56%, 56%);
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .option {
+    grid-template-columns: 50px 1fr;
+
+    .remove,
+    input {
+      margin-bottom: 10px;
+    }
+  }
+
+  .remove {
+    grid-row: 2;
+    grid-column: 1;
+  }
+}
