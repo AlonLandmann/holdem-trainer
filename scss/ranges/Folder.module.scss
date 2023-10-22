@@ -18,16 +18,16 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
 
-  @media only screen and (max-width: 1360px)  {
-    padding: 30px;
+  @media only screen and (max-width: 1400px)  {
+    padding: 20px 10px;
     gap: 30px;
   }
 
-  @media only screen and (max-width: 1320px) {
+  @media only screen and (max-width: 1360px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media only screen and (max-width: 890px) {
+  @media only screen and (max-width: 930px) {
     grid-template-columns: 1fr;
   }
 }
