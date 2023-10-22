@@ -1,6 +1,4 @@
 .container {
-  width: min(400px, calc(100vw - 50px));
-  height: min(400px, calc(100vw - 50px));
   border: 1px solid #ccc;
   display: grid;
   grid-template-rows: repeat(13, 1fr);
@@ -18,7 +16,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
   cursor: pointer;
   user-select: none;
 

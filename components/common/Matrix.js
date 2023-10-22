@@ -3,10 +3,15 @@ import { cloneDeep } from 'lodash'
 import { fontColors } from '@/lib/colors'
 import css from '@/scss/common/Matrix.module.scss'
 
-export default function Matrix({ range, setRange }) {
+export default function Matrix({ range, setRange, maxWidth }) {
   const labels = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
   const indices = range.options.map(option => option.index)
   const colors = range.options.map(option => option.color)
+  const style = {
+    width: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
+    height: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
+    fontSize: `${maxWidth >= 500 ? 14 : 12}px`
+  }
 
   const handleCellChange = (r, c) => {
     setRange(prev => {
@@ -19,7 +24,7 @@ export default function Matrix({ range, setRange }) {
   }
 
   return (
-    <div className={css.container}>
+    <div className={css.container} style={style}>
       {labels.map((_, r) => (
         <div key={uuid()} className={css.row}>
           {labels.map((_, c) => (

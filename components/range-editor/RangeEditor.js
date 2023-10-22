@@ -56,6 +56,7 @@ export default function RangeEditor({ user, range, setRange }) {
       <Matrix
         range={range}
         setRange={setRange}
+        maxWidth={440}
       />
       <Options
         range={range}
