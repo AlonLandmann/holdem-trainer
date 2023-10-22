@@ -1,6 +1,7 @@
 import { v4 as uuid } from 'uuid'
 import Matrix from '@/components/common/Matrix'
 import Options from '@/components/range-editor/Options'
+import History from '@/components/range-editor/History'
 import { getPositions } from '@/lib/positions'
 import css from '@/scss/range-editor/RangeEditor.module.scss'
 
@@ -48,6 +49,9 @@ export default function RangeEditor({ user, range, setRange }) {
         type='text'
         value={range.history}
         onChange={handleChange}
+      />
+      <History
+        range={range}
       />
       <Matrix
         range={range}
