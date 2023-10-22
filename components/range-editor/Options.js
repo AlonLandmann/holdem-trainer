@@ -72,7 +72,7 @@ export default function Options({ range, setRange }) {
   return (
     <div className={css.container}>
       {range.options.map(option => (
-        <div key={uuid()} className={css.option}>
+        <div key={option.index} className={css.option}>
           <div className={css.index}>{option.index}</div>
           <ColorPicker
             option={option}
