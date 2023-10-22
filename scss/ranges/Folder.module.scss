@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .topLine {
   display: flex;
   gap: 15px;
@@ -12,6 +17,7 @@
 }
 
 .ranges {
+  align-self: center;
   padding: 20px;
   display: inline-grid;
   justify-items: flex-start;
