@@ -1,4 +1,6 @@
 .topLine {
+  display: flex;
+  gap: 15px;
   font-size: 32px;
   color: #aaa;
   cursor: pointer;
@@ -10,8 +12,9 @@
 }
 
 .ranges {
-  padding: 40px;
-  display: grid;
+  padding: 20px;
+  display: inline-grid;
+  justify-items: flex-start;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
 
