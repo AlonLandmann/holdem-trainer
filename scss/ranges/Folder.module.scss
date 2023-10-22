@@ -1,0 +1,30 @@
+.topLine {
+  font-size: 32px;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #444;
+  }
+}
+
+.ranges {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+
+  @media only screen and (max-width: 1360px)  {
+    padding: 30px;
+    gap: 30px;
+  }
+
+  @media only screen and (max-width: 1320px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (max-width: 890px) {
+    grid-template-columns: 1fr;
+  }
+}
