@@ -1,14 +1,11 @@
-import { useRouter } from 'next/router'
 import { cloneDeep } from 'lodash'
 import Tooltip from '@mui/material/Tooltip'
 import { putUser } from '@/db/dbFetch'
 import css from '@/scss/ranges/UiButtons.module.scss'
 
 export default function UiButtons({ user, range, handleSaveChanges }) {
-  const router = useRouter()
-
   const handleEdit = () => {
-    router.push(`/ranges/${range.id}`)
+    window.open(`/ranges/${range.id}`, '_blank') || location.replace(`/ranges/${range.id}`)
   }
 
   const handleDelete = () => {
