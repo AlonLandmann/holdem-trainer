@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid'
+import Button from '@/components/common/Button'
 import Matrix from '@/components/common/Matrix'
 import Label from '@/components/range-editor/Label'
 import Options from '@/components/range-editor/Options'
@@ -19,6 +20,9 @@ export default function RangeEditor({ user, range, setRange }) {
   return (
     <div className={css.container}>
       <div className={css.title}>{range.name}</div>
+      <div className={css.saveButton}>
+        <Button large theme='simple' icon='floppy'>save changes</Button>
+      </div>
       <form className={css.form}>
         <div className={css.metaData}>
           <Label

@@ -3,12 +3,17 @@
 }
 
 .title {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 32px;
   font-weight: 500;
 }
 
+.saveButton {
+  margin-bottom: 30px;
+}
+
 .form {
+  margin-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
   gap: 35px;

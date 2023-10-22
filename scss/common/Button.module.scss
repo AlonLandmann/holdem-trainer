@@ -13,6 +13,19 @@
   }
 }
 
+.simple {
+  @include button;
+  color: #aaa;
+  border: 1px solid #d8d8d8;
+  transition: all 0.15s ease;
+  background: none;
+
+  &:hover {
+    color: #444;
+    border: 1px solid #aaa;
+  }
+}
+
 .primary {
   @include button;
   border: 1px solid #ce5252;
