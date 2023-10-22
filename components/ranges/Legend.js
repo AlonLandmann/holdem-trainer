@@ -12,7 +12,7 @@ export default function Legend({ range }) {
               backgroundColor: option.color
             }}
           >
-            {option.description}
+            {option.description || '-'}
           </div>
         ))}
       </div>
