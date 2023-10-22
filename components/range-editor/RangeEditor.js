@@ -1,27 +1,57 @@
+import { useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
+import { cloneDeep } from 'lodash'
 import Button from '@/components/common/Button'
 import Matrix from '@/components/common/Matrix'
 import Label from '@/components/range-editor/Label'
 import Options from '@/components/range-editor/Options'
 import History from '@/components/range-editor/History'
+import { putUser } from '@/db/dbFetch'
 import { getPositions } from '@/lib/positions'
 import css from '@/scss/range-editor/RangeEditor.module.scss'
 
 export default function RangeEditor({ user, range, setRange }) {
+  useEffect(() => {
+    const { nrPlayers, position } = range
+
+    if (getPositions(nrPlayers).indexOf(position) === -1) {
+      setRange(prev => ({
+        ...prev,
+        position: 'SB'
+      }))
+    }
+  }, [range.nrPlayers])
+
   const handleChange = (event) => {
     const { name, value } = event.target
 
-    setRange(prevFormData => ({
-      ...prevFormData,
+    setRange(prev => ({
+      ...prev,
       [name]: name === 'nrPlayers' ? Number(value) : value
     }))
+  }
+
+  const handleSubmit = () => {
+    let updatedUser = cloneDeep(user)
+
+    for (let i = 0; i < updatedUser.ranges.length; i += 1) {
+      if (updatedUser.ranges[i].id === range.id) {
+        updatedUser.ranges[i] = cloneDeep(range)
+
+        break;
+      }
+    }
+
+    putUser(user.email, updatedUser, () => { location.reload() })
   }
 
   return (
     <div className={css.container}>
       <div className={css.title}>{range.name}</div>
       <div className={css.saveButton}>
-        <Button large theme='gray-white' icon='floppy'>save changes</Button>
+        <Button large theme='gray-white' icon='floppy' onClick={handleSubmit}>
+          save changes
+        </Button>
       </div>
       <form className={css.form}>
         <div className={css.metaData}>
