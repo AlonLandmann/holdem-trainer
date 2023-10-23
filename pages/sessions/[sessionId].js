@@ -1,17 +1,17 @@
 import Head from 'next/head'
-import RangeEditorRoot from '@/components/range-editor/RangeEditorRoot'
+import SessionRoot from '@/components/session/SessionRoot'
 
-export default function RangeEditorPage() {
+export default function SessionPage() {
   return (
     <>
       <Head>
-        <title>Range Editor</title>
+        <title>Training Session</title>
         <link rel='icon' href='/favicon.svg' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
       <main>
-        <RangeEditorRoot />
+        <SessionRoot />
       </main>
     </>
   )
