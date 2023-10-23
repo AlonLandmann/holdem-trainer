@@ -4,7 +4,7 @@ import { newRange } from '@/lib/ranges'
 import css from '@/scss/ranges/UiSection.module.scss'
 
 export default function UiSection({ user }) {
-  const addSpot = () => {
+  const handleAddNew = () => {
     const updatedUser = cloneDeep(user)
 
     updatedUser.ranges.unshift(newRange)
@@ -14,7 +14,7 @@ export default function UiSection({ user }) {
 
   return (
     <div className={css.container}>
-      <div className={css.add} onClick={addSpot}>
+      <div className={css.add} onClick={handleAddNew}>
         <i className='bi bi-plus-lg'></i>
         <div>add new range</div>
       </div>

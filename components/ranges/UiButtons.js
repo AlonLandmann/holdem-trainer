@@ -1,4 +1,5 @@
 import { cloneDeep } from 'lodash'
+import { v4 as uuid } from 'uuid'
 import Tooltip from '@mui/material/Tooltip'
 import { putUser } from '@/db/dbFetch'
 import css from '@/scss/ranges/UiButtons.module.scss'
@@ -6,6 +7,17 @@ import css from '@/scss/ranges/UiButtons.module.scss'
 export default function UiButtons({ user, range, handleSaveChanges }) {
   const handleEdit = () => {
     window.open(`/ranges/${range.id}`, '_blank') || location.replace(`/ranges/${range.id}`)
+  }
+
+  const handleDuplicate = () => {
+    let updatedUser = cloneDeep(user)
+    let duplicateRange = cloneDeep(range)
+
+    duplicateRange.id = uuid()
+    duplicateRange.name = duplicateRange.name + ' - copy'
+    updatedUser.ranges.push(duplicateRange)
+
+    putUser(user.email, updatedUser, () => { location.reload() })
   }
 
   const handleDelete = () => {
@@ -34,6 +46,11 @@ export default function UiButtons({ user, range, handleSaveChanges }) {
       <Tooltip arrow title='edit range details' placement='right' enterDelay={500}>
         <div onClick={handleEdit}>
           <i className='bi bi-pen'></i>
+        </div>
+      </Tooltip>
+      <Tooltip arrow title='duplicate range' placement='right' enterDelay={500}>
+        <div onClick={handleDuplicate}>
+          <i className='bi bi-layout-split'></i>
         </div>
       </Tooltip>
       <Tooltip arrow title='delete range' placement='right' enterDelay={500}>
