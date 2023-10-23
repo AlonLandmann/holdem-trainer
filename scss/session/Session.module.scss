@@ -1,4 +1,5 @@
 .container {
+  padding: 20px 40px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,4 +19,9 @@
 
 .history {
   margin-bottom: 40px;
+}
+
+.combo {
+  display: flex;
+  gap: 8px;
 }
