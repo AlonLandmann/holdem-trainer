@@ -1,5 +1,5 @@
 .container {
-  padding: 20px 40px 40px;
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .name {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 32px;
   font-weight: 500;
 }
@@ -22,6 +22,11 @@
 }
 
 .combo {
+  margin-bottom: 40px;
   display: flex;
   gap: 8px;
+}
+
+.options {
+  margin-bottom: 0;
 }
