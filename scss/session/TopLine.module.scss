@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  gap: 25px;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.finish {
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #555;
+  }
+}

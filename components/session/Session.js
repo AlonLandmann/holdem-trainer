@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import History from '@/components/common/History'
+import TopLine from '@/components/session/TopLine'
 import Card from '@/components/session/Card'
 import AnswerButtons from '@/components/session/AnswerButtons'
 import { randomRange } from '@/lib/sessions'
@@ -24,7 +25,7 @@ export default function Session({ user, session, setSession }) {
 
   return (
     <div className={css.container}>
-      <div className={css.id}>Session #{session.id.slice(0, 8)}</div>
+      <div className={css.topLine}><TopLine session={session} stats={stats} /></div>
       <div className={css.name}>{range.name}</div>
       <div className={css.history}><History range={range} /></div>
       <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
