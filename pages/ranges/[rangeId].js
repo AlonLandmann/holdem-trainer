@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import RangeEditorRoot from '@/components/range-editor/RangeEditorRoot'
+import RangeRoot from '@/components/range/RangeRoot'
 
-export default function RangeEditorPage() {
+export default function RangePage() {
   return (
     <>
       <Head>
@@ -11,7 +11,7 @@ export default function RangeEditorPage() {
       </Head>
 
       <main>
-        <RangeEditorRoot />
+        <RangeRoot />
       </main>
     </>
   )

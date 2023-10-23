@@ -1,8 +1,8 @@
 import { cloneDeep } from 'lodash'
 import Button from '@/components/common/Button'
-import ColorPicker from '@/components/range-editor/ColorPicker'
+import ColorPicker from '@/components/range/ColorPicker'
 import { colors } from '@/lib/colors'
-import css from '@/scss/range-editor/Options.module.scss'
+import css from '@/scss/range/Options.module.scss'
 
 export default function Options({ range, setRange }) {
   const handleChange = (event, option) => {

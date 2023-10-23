@@ -1,4 +1,4 @@
-import css from '@/scss/range-editor/History.module.scss'
+import css from '@/scss/range/History.module.scss'
 import { getPositions } from '@/lib/positions'
 
 export default function History({ range }) {

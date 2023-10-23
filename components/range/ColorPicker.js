@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { cloneDeep } from 'lodash'
 import { colors } from '@/lib/colors'
-import css from '@/scss/range-editor/ColorPicker.module.scss'
+import css from '@/scss/range/ColorPicker.module.scss'
 
 export default function ColorPicker({ option, disabled, setRange }) {
   const [isChoosing, setIsChoosing] = useState(false)

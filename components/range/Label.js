@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import css from '@/scss/range-editor/Label.module.scss'
+import css from '@/scss/range/Label.module.scss'
 
 export default function Label({ htmlFor, text, tooltip }) {
   const [tooltipInView, setTooltipInView] = useState(false)

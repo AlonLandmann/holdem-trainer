@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import { cloneDeep } from 'lodash'
 import Button from '@/components/common/Button'
 import Matrix from '@/components/common/Matrix'
-import Label from '@/components/range-editor/Label'
-import Options from '@/components/range-editor/Options'
-import History from '@/components/range-editor/History'
+import Label from '@/components/range/Label'
+import Options from '@/components/range/Options'
+import History from '@/components/range/History'
 import { putUser } from '@/db/dbFetch'
 import { getPositions } from '@/lib/positions'
-import css from '@/scss/range-editor/RangeEditor.module.scss'
+import css from '@/scss/range/RangeEditor.module.scss'
 
 export default function RangeEditor({ user, range, setRange }) {
   useEffect(() => {

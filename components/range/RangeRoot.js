@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Navbar from '@/components/common/Navbar'
-import RangeEditor from '@/components/range-editor/RangeEditor'
+import RangeEditor from '@/components/range/RangeEditor'
 import useAuth from '@/hooks/useAuth'
-import css from '@/scss/range-editor/RangeEditorRoot.module.scss'
+import css from '@/scss/range/RangeRoot.module.scss'
 
-export default function RangeEditorRoot() {
+export default function RangeRoot() {
   const { isLoading, user } = useAuth()
   const router = useRouter()
   const [range, setRange] = useState({})
