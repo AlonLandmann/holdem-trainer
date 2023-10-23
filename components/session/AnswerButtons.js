@@ -1,8 +1,9 @@
+import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { correctAnswer } from '@/lib/cards'
 import css from '@/scss/session/AnswerButtons.module.scss'
 
-export default function AnswerButtons({ range, combo, stats, setStats }) {
+export default function AnswerButtons({ range, combo, setStats }) {
   const handleAnswer = (index) => {
     if (index === correctAnswer(range, combo)) {
       toast.success('correct')
@@ -12,6 +13,27 @@ export default function AnswerButtons({ range, combo, stats, setStats }) {
       setStats(prev => prev.concat([{ range, combo, correct: false }]))
     }
   }
+
+  const handleShortcutAnswer = (event) => {
+    if (Number(event.key) && Number(event.key) < range.options.length) {
+      if (Number(event.key) === correctAnswer(range, combo)) {
+        toast.success('correct')
+        setStats(prev => prev.concat([{ range, combo, correct: true }]))
+      } else {
+        toast.error('false')
+        setStats(prev => prev.concat([{ range, combo, correct: false }]))
+      }
+    }
+  }
+
+  useEffect(() => {
+    console.log('add now')
+    window.addEventListener('keyup', handleShortcutAnswer);
+
+    return () => {
+      window.removeEventListener('keyup', handleShortcutAnswer);
+    }
+  }, [combo])
 
   return (
     <div className={css.container}>

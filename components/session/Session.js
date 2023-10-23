@@ -32,7 +32,6 @@ export default function Session({ user, session, setSession }) {
         <AnswerButtons
           range={range}
           combo={combo}
-          stats={stats}
           setStats={setStats}
         />
       </div>
