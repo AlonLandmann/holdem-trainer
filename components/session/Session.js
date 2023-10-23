@@ -35,7 +35,6 @@ export default function Session({ user, session, setSession }) {
           setStats={setStats}
         />
       </div>
-      <div>{stats.length}</div>
     </div>
   )
 }
