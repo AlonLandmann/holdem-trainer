@@ -24,7 +24,7 @@ export default function SessionRoot() {
     }
   }, [isLoading])
 
-  if (isLoading || !user) return null
+  if (isLoading || !user || !session.rangeIds ) return null
 
   return (
     <div>
