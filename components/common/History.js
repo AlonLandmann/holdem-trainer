@@ -1,5 +1,5 @@
-import css from '@/scss/range/History.module.scss'
 import { getPositions } from '@/lib/positions'
+import css from '@/scss/common/History.module.scss'
 
 export default function History({ range }) {
   const positions = getPositions(range.nrPlayers)
