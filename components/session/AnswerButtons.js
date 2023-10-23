@@ -39,7 +39,8 @@ export default function AnswerButtons({ range, combo, setStats }) {
     <div className={css.container}>
       {range.options.slice(1).map(option => (
         <div key={option.index} onClick={() => { handleAnswer(option.index) }}>
-          {option.description}
+          <div className={css.hotkey}>{option.index}</div>
+          <div className={css.description}>{option.description || 'option'}</div>
         </div>
       ))}
     </div>

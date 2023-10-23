@@ -3,13 +3,24 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 6px;
 
-  div {
-    padding: 15px 25px;
+  &>div {
+    padding: 15px 22px;
     border-radius: 2px;
-    color: #555;
+    display: flex;
+    gap: 15px;
     background-color: #eee;
     cursor: pointer;
     transition: all 0.15s ease;
+
+    .hotkey {
+      min-width: 15px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .description {
+      color: #555;
+    }
 
     &:hover {
       background-color: #ddd;
