@@ -33,7 +33,6 @@ export default function SessionRoot() {
         <Session
           user={user}
           session={session}
-          setSession={setSession}
         />
       </div>
     </div>

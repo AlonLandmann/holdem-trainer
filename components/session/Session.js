@@ -6,7 +6,7 @@ import AnswerButtons from '@/components/session/AnswerButtons'
 import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
 
-export default function Session({ user, session, setSession }) {
+export default function Session({ user, session }) {
   const newRange = randomRange(user, session)
   const newCombo = randomCombo(newRange)
 
@@ -15,11 +15,13 @@ export default function Session({ user, session, setSession }) {
   const [stats, setStats] = useState([])
 
   useEffect(() => {
-    const newRange = randomRange(user, session)
-    const newCombo = randomCombo(newRange)
+    if (stats.length < session.limit) {
+      const newRange = randomRange(user, session)
+      const newCombo = randomCombo(newRange)
 
-    setRange(newRange)
-    setCombo(newCombo)
+      setRange(newRange)
+      setCombo(newCombo)
+    }
   }, [stats])
 
   return (
@@ -30,8 +32,11 @@ export default function Session({ user, session, setSession }) {
       <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
       <div className={css.options}>
         <AnswerButtons
+          user={user}
+          session={session}
           range={range}
           combo={combo}
+          stats={stats}
           setStats={setStats}
         />
       </div>

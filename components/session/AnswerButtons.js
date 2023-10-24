@@ -1,33 +1,49 @@
 import { useEffect } from 'react'
+import { cloneDeep } from 'lodash'
 import toast from 'react-hot-toast'
+import { putUser } from '@/db/dbFetch'
 import { correctAnswer } from '@/lib/cards'
 import css from '@/scss/session/AnswerButtons.module.scss'
 
-export default function AnswerButtons({ range, combo, setStats }) {
-  const handleAnswer = (index) => {
-    if (index === correctAnswer(range, combo)) {
+export default function AnswerButtons({ user, session, range, combo, stats, setStats }) {
+  const finishSession = (sessionToStore)  => {
+    let updatedUser = cloneDeep(user)
+
+    updatedUser.sessions.push(sessionToStore)
+    putUser(user.email, updatedUser, () => { location.replace('/sessions') })
+  }
+
+  const handleAnswer = (isCorrect) => {
+    const dataPoint = {
+      range: { id: range.id, name: range.name },
+      combo: combo,
+      correct: isCorrect
+    }
+
+    if (isCorrect) {
       toast.success('correct')
-      setStats(prev => prev.concat([{ range, combo, correct: true }]))
     } else {
       toast.error('false')
-      setStats(prev => prev.concat([{ range, combo, correct: false }]))
     }
+
+    if (stats.length < session.limit - 1) {
+      setStats(prev => prev.concat([dataPoint]))
+    } else {
+      finishSession({ ...session, data: stats.concat([dataPoint])})
+    }
+  }
+
+  const handleButtonAnswer = (index) => {
+    handleAnswer(index === correctAnswer(range, combo))
   }
 
   const handleShortcutAnswer = (event) => {
     if (Number(event.key) && Number(event.key) < range.options.length) {
-      if (Number(event.key) === correctAnswer(range, combo)) {
-        toast.success('correct')
-        setStats(prev => prev.concat([{ range, combo, correct: true }]))
-      } else {
-        toast.error('false')
-        setStats(prev => prev.concat([{ range, combo, correct: false }]))
-      }
+      handleAnswer(Number(event.key) === correctAnswer(range, combo))
     }
   }
 
   useEffect(() => {
-    console.log('add now')
     window.addEventListener('keyup', handleShortcutAnswer);
 
     return () => {
@@ -38,7 +54,7 @@ export default function AnswerButtons({ range, combo, setStats }) {
   return (
     <div className={css.container}>
       {range.options.slice(1).map(option => (
-        <div key={option.index} onClick={() => { handleAnswer(option.index) }}>
+        <div key={option.index} onClick={() => { handleButtonAnswer(option.index) }}>
           <div className={css.hotkey}>{option.index}</div>
           <div className={css.description}>{option.description || 'option'}</div>
         </div>
