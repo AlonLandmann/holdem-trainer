@@ -8,7 +8,10 @@ export default function TopLine({ session, stats, setIsEnding }) {
 
   return (
     <div className={css.container}>
-      <div>Session #{session.id.slice(0, 8)} · {stats.length + 1}</div>
+      <div>
+        Session #{session.id.slice(0, 8)} · {' '}
+        {Math.min(stats.length + 1, session.limit)} / {session.limit}
+      </div>
       <Tooltip arrow title='end session' placement='top' enterDelay={200}>
         <div className={css.finish} onClick={handleEndSession}>
           <i className='bi bi-arrow-return-left'></i>

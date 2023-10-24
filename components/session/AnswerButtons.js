@@ -12,9 +12,9 @@ export default function AnswerButtons({ session, range, combo, stats, setStats, 
     }
 
     if (isCorrect) {
-      toast.success('correct')
+      toast.success('correct', { duration: 1000 })
     } else {
-      toast.error('false')
+      toast.error('false', { duration: 1000 })
     }
 
     if (stats.length < session.limit) {

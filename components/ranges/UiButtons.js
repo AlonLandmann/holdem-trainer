@@ -10,11 +10,11 @@ export default function UiButtons({ user, range, handleSaveChanges }) {
     let session = newSession([range.id])
 
     localStorage.setItem('session', JSON.stringify(session))
-    window.open(`/sessions/${session.id}`, '_blank') || location.replace(`/sessions/${session.id}`)
+    location.replace(`/sessions/${session.id}`)
   }
   
   const handleEdit = () => {
-    window.open(`/ranges/${range.id}`, '_blank') || location.replace(`/ranges/${range.id}`)
+   location.replace(`/ranges/${range.id}`)
   }
 
   const handleDuplicate = () => {
