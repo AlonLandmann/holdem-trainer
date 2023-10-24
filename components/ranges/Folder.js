@@ -2,7 +2,7 @@ import { useState } from 'react'
 import RangeCard from '@/components/ranges/RangeCard'
 import css from '@/scss/ranges/Folder.module.scss'
 
-export default function Folder({ user, folder }) {
+export default function Folder({ user, folder, handleSelectionChange }) {
   const [inView, setInView] = useState(true)
 
   const handleToggle = () => {
@@ -27,6 +27,7 @@ export default function Folder({ user, folder }) {
               key={range.id}
               user={user}
               range={range}
+              handleSelectionChange={handleSelectionChange}
             />
           ))}
         </div>

@@ -10,9 +10,15 @@ import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/RangeCard.module.scss'
 import Button from '../common/Button'
 
-export default function RangeCard({ user, range }) {
+export default function RangeCard({ user, range, handleSelectionChange }) {
   const [formData, setFormData] = useState(cloneDeep(range))
   const [statsInView, setStatsInView] = useState(false)
+  const [isSelected, setIsSelected] = useState(false)
+
+  const handleSelectionToggle = () => {
+    handleSelectionChange(range.id, isSelected)
+    setIsSelected(prev => !prev)
+  }
 
   const handleStartSession = () => {
     let session = newSession([range.id])
@@ -52,10 +58,18 @@ export default function RangeCard({ user, range }) {
             ? <StatsLegend />
             : <Legend range={formData} />
           }
-          <Button theme='gray-white' icon='square'>
+          <Button
+            theme='gray-white'
+            icon={isSelected ? 'check-square' : 'square'}
+            onClick={handleSelectionToggle}
+          >
             select
           </Button>
-          <Button theme='dark' icon='crosshair' onClick={handleStartSession}>
+          <Button
+            theme='dark'
+            icon='crosshair'
+            onClick={handleStartSession}
+          >
             train now
           </Button>
         </div>
