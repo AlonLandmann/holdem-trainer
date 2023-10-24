@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { cloneDeep } from 'lodash'
 import History from '@/components/common/History'
+import SavingScreen from '@/components/session/SavingScreen'
 import TopLine from '@/components/session/TopLine'
 import Card from '@/components/session/Card'
 import AnswerButtons from '@/components/session/AnswerButtons'
@@ -42,38 +43,33 @@ export default function Session({ user, session }) {
     }
   }, [isEnding])
 
-  if (!isEnding) {
-    return (
-      <div className={css.container}>
-        <div className={css.topLine}>
-          <TopLine
-            session={session}
-            stats={stats}
-            setIsEnding={setIsEnding}
-          />
-        </div>
-        <div className={css.name}>{range.name}</div>
-        <div className={css.history}><History range={range} /></div>
-        <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
-        <div className={css.options}>
-          <AnswerButtons
-            session={session}
-            range={range}
-            combo={combo}
-            stats={stats}
-            setStats={setStats}
-            setIsEnding={setIsEnding}
-          />
-        </div>
-      </div>
-    )
+  if (isEnding) {
+    return <SavingScreen />
   }
 
   return (
-    <div className={css.endingContainer}>
-      <div className={css.endingHeading}>Session complete</div>
-      <div className={css.endingExplanation}>Saving results ...</div>
-      <div className={css.endingIcon}></div>
+    <div className={css.container}>
+      <div className={css.topLine}>
+        <TopLine
+          session={session}
+          stats={stats}
+          setIsEnding={setIsEnding}
+        />
+      </div>
+      <div className={css.name}>{range.name}</div>
+      <div className={css.history}><History range={range} /></div>
+      <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
+      <div className={css.options}>
+        <AnswerButtons
+          session={session}
+          range={range}
+          combo={combo}
+          stats={stats}
+          setStats={setStats}
+          setIsEnding={setIsEnding}
+        />
+      </div>
     </div>
   )
+
 }

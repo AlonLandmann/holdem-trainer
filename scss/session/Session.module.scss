@@ -28,39 +28,3 @@
 .options {
   margin-bottom: 0;
 }
-
-.endingContainer {
-  padding: 20px 40px;
-  min-height: calc(100vh - 58px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.endingHeading {
-  margin-bottom: 20px;
-  font-size: 40px;
-  font-weight: 500;
-}
-
-.endingExplanation {
-  margin-bottom: 30px;
-  font-size: 22px;
-  color: #aaa;
-}
-
-.endingIcon {
-  width: 90px;
-  height: 90px;
-  border: 12px solid #eee;
-  border-top: 12px solid #888;
-  border-radius: 50%;
-  animation: spin 1.5s linear infinite;
-
-  @keyframes spin {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
-  }
-}
-
