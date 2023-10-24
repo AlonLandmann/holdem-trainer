@@ -1,14 +1,9 @@
 import { Tooltip } from '@mui/material'
-import { cloneDeep } from 'lodash'
-import { putUser } from '@/db/dbFetch'
 import css from '@/scss/session/TopLine.module.scss'
 
-export default function TopLine({ user, session, stats }) {
+export default function TopLine({ session, stats, setIsEnding }) {
   const handleEndSession = () => {
-    let updatedUser = cloneDeep(user)
-
-    updatedUser.sessions.push({ ...session, data: stats })
-    putUser(user.email, updatedUser, () => { location.replace('/sessions') })
+    setIsEnding(true)
   }
 
   return (

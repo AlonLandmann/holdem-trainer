@@ -1,18 +1,9 @@
 import { useEffect } from 'react'
-import { cloneDeep } from 'lodash'
 import toast from 'react-hot-toast'
-import { putUser } from '@/db/dbFetch'
 import { correctAnswer } from '@/lib/cards'
 import css from '@/scss/session/AnswerButtons.module.scss'
 
-export default function AnswerButtons({ user, session, range, combo, stats, setStats }) {
-  const endSession = (sessionToStore)  => {
-    let updatedUser = cloneDeep(user)
-
-    updatedUser.sessions.push(sessionToStore)
-    putUser(user.email, updatedUser, () => { location.replace('/sessions') })
-  }
-
+export default function AnswerButtons({ session, range, combo, stats, setStats, setIsEnding }) {
   const handleAnswer = (isCorrect) => {
     const dataPoint = {
       range: { id: range.id, name: range.name },
@@ -26,10 +17,8 @@ export default function AnswerButtons({ user, session, range, combo, stats, setS
       toast.error('false')
     }
 
-    if (stats.length < session.limit - 1) {
+    if (stats.length < session.limit) {
       setStats(prev => prev.concat([dataPoint]))
-    } else {
-      endSession({ ...session, data: stats.concat([dataPoint])})
     }
   }
 

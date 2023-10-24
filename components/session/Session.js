@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { cloneDeep } from 'lodash'
 import History from '@/components/common/History'
 import TopLine from '@/components/session/TopLine'
 import Card from '@/components/session/Card'
 import AnswerButtons from '@/components/session/AnswerButtons'
+import { putUser } from '@/db/dbFetch'
 import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
 
@@ -13,6 +15,7 @@ export default function Session({ user, session }) {
   const [range, setRange] = useState(newRange)
   const [combo, setCombo] = useState(newCombo)
   const [stats, setStats] = useState([])
+  const [isEnding, setIsEnding] = useState(false)
 
   useEffect(() => {
     if (stats.length < session.limit) {
@@ -21,31 +24,56 @@ export default function Session({ user, session }) {
 
       setRange(newRange)
       setCombo(newCombo)
+    } else {
+      setIsEnding(true)
     }
   }, [stats])
 
+  useEffect(() => {
+    if (isEnding) {
+      if (!stats.length) {
+        location.replace('/sessions')
+      } else {
+        let updatedUser = cloneDeep(user)
+
+        updatedUser.sessions.push({ ...session, data: stats })
+        putUser(user.email, updatedUser, () => { location.replace('/sessions') })
+      }
+    }
+  }, [isEnding])
+
+  if (!isEnding) {
+    return (
+      <div className={css.container}>
+        <div className={css.topLine}>
+          <TopLine
+            session={session}
+            stats={stats}
+            setIsEnding={setIsEnding}
+          />
+        </div>
+        <div className={css.name}>{range.name}</div>
+        <div className={css.history}><History range={range} /></div>
+        <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
+        <div className={css.options}>
+          <AnswerButtons
+            session={session}
+            range={range}
+            combo={combo}
+            stats={stats}
+            setStats={setStats}
+            setIsEnding={setIsEnding}
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className={css.container}>
-      <div className={css.topLine}>
-        <TopLine
-          user={user}
-          session={session}
-          stats={stats}
-        />
-      </div>
-      <div className={css.name}>{range.name}</div>
-      <div className={css.history}><History range={range} /></div>
-      <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
-      <div className={css.options}>
-        <AnswerButtons
-          user={user}
-          session={session}
-          range={range}
-          combo={combo}
-          stats={stats}
-          setStats={setStats}
-        />
-      </div>
+    <div className={css.endingContainer}>
+      <div className={css.endingHeading}>Session complete</div>
+      <div className={css.endingExplanation}>Saving results ...</div>
+      <div className={css.endingIcon}></div>
     </div>
   )
 }
