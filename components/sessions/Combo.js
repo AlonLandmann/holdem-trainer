@@ -14,7 +14,7 @@ export default function Combo({ combo }) {
       </div>
       <div className={css.card}>
         <div className={`${css.value} ${css[suitNames[combo[1][1]]]}`}>
-          {combo[0][0]}
+          {combo[1][0]}
         </div>
         <div className={`${css.suit} ${css[suitNames[combo[1][1]]]}`}>
           <i className={`bi bi-suit-${suitNames[combo[1][1]]}-fill`}></i>
