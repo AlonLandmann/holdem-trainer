@@ -9,6 +9,10 @@ export default function SessionData({ user, session }) {
     setInView(prev => !prev)
   }
 
+  const correct = session.data.filter(dp => dp.correct).length
+  const total = session.data.length
+  const accuracy = Math.floor(100 * correct / total)
+
   return (
     <div className={css.container}>
       <div className={css.topLine} onClick={handleToggle}>
@@ -20,6 +24,9 @@ export default function SessionData({ user, session }) {
         </div>
         <div className={css.name}>
           {session.startedAt.slice(0, 19)}
+        </div>
+        <div className={css.stats}>
+          {correct} · {total} · {accuracy}%
         </div>
       </div>
       {inView &&
