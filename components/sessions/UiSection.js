@@ -1,6 +1,3 @@
-import { cloneDeep } from 'lodash'
-import { putUser } from '@/db/dbFetch'
-import { newRange } from '@/lib/ranges'
 import css from '@/scss/ranges/UiSection.module.scss'
 
 export default function UiSection() {
