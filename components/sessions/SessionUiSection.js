@@ -5,12 +5,12 @@ export default function SessionUiSection({ user }) {
     location.replace('/ranges')
   }
 
-  const correct = user.sessions.reduce((acc, session) => {
-    return acc + session.data.filter(dp => dp.correct).length
+  const correct = user.sessions.reduce((sum, session) => {
+    return sum + session.data.filter(dp => dp.correct).length
   }, 0)
 
-  const total = user.sessions.reduce((acc, session) => {
-    return acc + session.data.length
+  const total = user.sessions.reduce((sum, session) => {
+    return sum + session.data.length
   }, 0)
 
   const accuracy = Math.floor(100 * correct / total)

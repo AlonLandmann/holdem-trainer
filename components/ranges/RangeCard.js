@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { cloneDeep } from 'lodash'
 import Matrix from '@/components/common/Matrix'
+import StatsMatrix from '@/components/ranges/StatsMatrix'
 import Legend from '@/components/ranges/Legend'
 import UiButtons from '@/components/ranges/UiButtons'
 import { putUser } from '@/db/dbFetch'
@@ -30,7 +31,8 @@ export default function RangeCard({ user, range }) {
           {formData.name}
         </div>
         <div className={css.matrix}>
-          <Matrix range={formData} setRange={setFormData} />
+          {/* <Matrix range={formData} setRange={setFormData} /> */}
+          <StatsMatrix user={user} range={formData} />
         </div>
         <div className={css.legend}>
           <Legend range={formData} />

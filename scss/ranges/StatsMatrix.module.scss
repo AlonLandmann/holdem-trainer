@@ -1,0 +1,36 @@
+.container {
+  border: 1px solid #ccc;
+  display: grid;
+  grid-template-rows: repeat(13, 1fr);
+  // gap: 1px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  // gap: 1px;
+}
+
+.cell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+  @media only screen and (max-width: 535px) {
+    font-size: 11px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 10px;
+  }
+
+  @media only screen and (max-width: 425px) {
+    font-size: 9px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    font-size: 8px;
+  }
+}
