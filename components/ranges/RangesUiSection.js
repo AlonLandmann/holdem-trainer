@@ -1,9 +1,10 @@
 import { cloneDeep } from 'lodash'
 import { putUser } from '@/db/dbFetch'
 import { newRange } from '@/lib/ranges'
+import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/RangesUiSection.module.scss'
 
-export default function RangesUiSection({ user }) {
+export default function RangesUiSection({ user, selected }) {
   const handleAddNew = () => {
     const updatedUser = cloneDeep(user)
 
@@ -12,12 +13,25 @@ export default function RangesUiSection({ user }) {
     putUser(user.email, updatedUser, () => { location.reload() })
   }
 
+  const handleStartSession = () => {
+    let session = newSession(selected)
+
+    localStorage.setItem('session', JSON.stringify(session))
+    location.replace(`/sessions/${session.id}`)
+  }
+
   return (
     <div className={css.container}>
       <div className={css.add} onClick={handleAddNew}>
         <i className='bi bi-plus-lg'></i>
         <div>add new range</div>
       </div>
+      {selected.length > 0 &&
+        <div className={css.train} onClick={handleStartSession}>
+          <i className='bi bi-crosshair'></i>
+          <div>train selection</div>
+        </div>
+      }
     </div>
   )
 }

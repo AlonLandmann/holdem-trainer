@@ -14,3 +14,17 @@
     color: #444;
   }
 }
+
+.train {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+  font-size: 32px;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #444;
+  }
+}
