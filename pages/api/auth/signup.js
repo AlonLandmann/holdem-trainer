@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid'
 import dbConnect from '@/db/dbConnect'
 import Session from '@/db/models/Session'
 import User from '@/db/models/User'
+import sampleRanges from '@/db/sample-ranges.json'
 
 dbConnect()
 
@@ -16,8 +17,8 @@ export default async function handler(req, res) {
           email: req.body.email,
           username: req.body.username,
           hash: sha256(req.body.password),
-          spots: [],
-          drills: []
+          ranges: sampleRanges,
+          sessions: []
         }
         
         const newSession = {
