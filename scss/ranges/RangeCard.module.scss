@@ -18,6 +18,25 @@
 }
 
 .bottom {
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  justify-items: center;
+  align-items: start;
+}
+
+.mainButtons {
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
+  font-size: 28px;
+  color: #aaa;
+
+  & div {
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: #555;
+    }
+  }
 }

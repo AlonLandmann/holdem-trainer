@@ -2,17 +2,9 @@ import { cloneDeep } from 'lodash'
 import { v4 as uuid } from 'uuid'
 import Tooltip from '@mui/material/Tooltip'
 import { putUser } from '@/db/dbFetch'
-import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/UiButtons.module.scss'
 
 export default function UiButtons({ user, range, handleSaveChanges, statsInView, setStatsInView }) {
-  const handleStartSession = () => {
-    let session = newSession([range.id])
-
-    localStorage.setItem('session', JSON.stringify(session))
-    location.replace(`/sessions/${session.id}`)
-  }
-  
   const handleViewStatistics = () => {
     setStatsInView(prev => !prev)
   }
@@ -50,11 +42,6 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
 
   return (
     <div className={css.container}>
-      <Tooltip arrow title='start practice session' placement='right' enterDelay={500}>
-        <div onClick={handleStartSession}>
-          <i className='bi bi-crosshair'></i>
-        </div>
-      </Tooltip>
       <Tooltip arrow title='view statistics' placement='right' enterDelay={500}>
         <div onClick={handleViewStatistics}>
           <i className={`bi bi-${statsInView ? 'x-lg' : 'bar-chart' }`}></i>

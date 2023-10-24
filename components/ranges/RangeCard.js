@@ -6,11 +6,20 @@ import StatsMatrix from '@/components/ranges/StatsMatrix'
 import StatsLegend from '@/components/ranges/StatsLegend'
 import UiButtons from '@/components/ranges/UiButtons'
 import { putUser } from '@/db/dbFetch'
+import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/RangeCard.module.scss'
+import Button from '../common/Button'
 
 export default function RangeCard({ user, range }) {
   const [formData, setFormData] = useState(cloneDeep(range))
   const [statsInView, setStatsInView] = useState(false)
+
+  const handleStartSession = () => {
+    let session = newSession([range.id])
+
+    localStorage.setItem('session', JSON.stringify(session))
+    location.replace(`/sessions/${session.id}`)
+  }
 
   const handleSaveChanges = () => {
     let updatedUser = cloneDeep(user)
@@ -38,11 +47,17 @@ export default function RangeCard({ user, range }) {
             : <Matrix range={formData} setRange={setFormData} />
           }
         </div>
-        <div className={css.legend}>
+        <div className={css.bottom}>
           {statsInView
             ? <StatsLegend />
             : <Legend range={formData} />
           }
+          <Button theme='gray-white' icon='square'>
+            select
+          </Button>
+          <Button theme='dark' icon='crosshair' onClick={handleStartSession}>
+            train now
+          </Button>
         </div>
       </div>
       <UiButtons

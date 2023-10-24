@@ -9,7 +9,7 @@ import { putUser } from '@/db/dbFetch'
 import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
 
-const SESSION_STORAGE_LIMIT = 20
+const SESSION_STORAGE_LIMIT = 100
 
 export default function Session({ user, session }) {
   const newRange = randomRange(user, session)
