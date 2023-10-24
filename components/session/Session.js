@@ -3,8 +3,7 @@ import History from '@/components/common/History'
 import TopLine from '@/components/session/TopLine'
 import Card from '@/components/session/Card'
 import AnswerButtons from '@/components/session/AnswerButtons'
-import { randomRange } from '@/lib/sessions'
-import { randomCombo } from '@/lib/cards'
+import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
 
 export default function Session({ user, session, setSession }) {

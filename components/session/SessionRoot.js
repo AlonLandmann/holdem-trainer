@@ -14,9 +14,9 @@ export default function SessionRoot() {
     if (!isLoading && !user) {
       location.replace('/login')
     } else if (!isLoading && user) {
-      const foundSession = user.sessions.filter(s => s.id === router.query.sessionId)[0]
+      const foundSession = JSON.parse(localStorage.getItem('session'))
 
-      if (foundSession) {
+      if (foundSession.id === router.query.sessionId) {
         setSession(foundSession)
       } else {
         router.push('/sessions')

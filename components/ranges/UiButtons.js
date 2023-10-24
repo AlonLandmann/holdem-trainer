@@ -7,14 +7,10 @@ import css from '@/scss/ranges/UiButtons.module.scss'
 
 export default function UiButtons({ user, range, handleSaveChanges }) {
   const handleStartSession = () => {
-    let updatedUser = cloneDeep(user)
     let session = newSession([range.id])
-    
-    updatedUser.sessions.push(session)
 
-    putUser(user.email, updatedUser, () => {
-      window.open(`/sessions/${session.id}`, '_blank') || location.replace(`/sessions/${session.id}`)
-    })
+    localStorage.setItem('session', JSON.stringify(session))
+    window.open(`/sessions/${session.id}`, '_blank') || location.replace(`/sessions/${session.id}`)
   }
   
   const handleEdit = () => {
