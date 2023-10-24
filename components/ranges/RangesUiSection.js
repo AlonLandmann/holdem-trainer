@@ -1,9 +1,9 @@
 import { cloneDeep } from 'lodash'
 import { putUser } from '@/db/dbFetch'
 import { newRange } from '@/lib/ranges'
-import css from '@/scss/ranges/UiSection.module.scss'
+import css from '@/scss/ranges/RangesUiSection.module.scss'
 
-export default function UiSection({ user }) {
+export default function RangesUiSection({ user }) {
   const handleAddNew = () => {
     const updatedUser = cloneDeep(user)
 

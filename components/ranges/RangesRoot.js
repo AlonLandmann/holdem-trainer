@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Navbar from '@/components/common/Navbar'
-import UiSection from '@/components/ranges/UiSection'
+import RangesUiSection from '@/components/ranges/RangesUiSection'
 import Gallery from '@/components/ranges/Gallery'
 import useAuth from '@/hooks/useAuth'
 import css from '@/scss/ranges/RangesRoot.module.scss'
@@ -21,7 +21,7 @@ export default function RangesRoot() {
     <div>
       <Navbar user={user} />
       <div className={css.main}>
-        <UiSection user={user} />
+        <RangesUiSection user={user} />
         <Gallery user={user} />
       </div>
     </div>
