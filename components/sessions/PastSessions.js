@@ -7,7 +7,7 @@ export default function PastSessions({ user }) {
       {[...user.sessions].reverse().map(session => (
         <SessionData
           key={session.id}
-          sessionData={session}
+          session={session}
         />
       ))}
     </div>

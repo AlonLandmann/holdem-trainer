@@ -1,3 +1,41 @@
 .container {
-  
+  display: flex;
+  flex-direction: column;
+}
+
+.topLine {
+  display: flex;
+  gap: 15px;
+  font-size: 32px;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #444;
+  }
+}
+
+.name {
+  display: flex;
+  font-family: 'Sometype Mono', monospace;
+}
+
+.data {
+  max-width: 600px;
+  padding: 25px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dataPoint {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dataPointName {
+  font-weight: 500;
+  color: #555;
 }

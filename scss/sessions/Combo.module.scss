@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  grid-template-columns: 45px 45px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 16px 16px;
+  align-items: center;
+}
+
+.suit {
+  margin-top: 1px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.value, .suit {
+  font-family: 'Rubit', sans-serif;
+
+  &.spade {
+    color: #222;
+  }
+
+  &.heart {
+    color: #de3c3c;
+  }
+
+  &.diamond {
+    color: #0a6ddd;
+  }
+
+  &.club {
+    color: #2e9717;
+  }
+}
