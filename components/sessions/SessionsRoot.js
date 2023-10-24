@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Navbar from '@/components/common/Navbar'
+import UiSection from '@/components/sessions/UiSection'
 import useAuth from '@/hooks/useAuth'
 import css from '@/scss/sessions/SessionsRoot.module.scss'
 
@@ -19,7 +20,7 @@ export default function SessionsRoot() {
     <div>
       <Navbar user={user} />
       <div className={css.main}>
-        Hallo
+        <UiSection />
       </div>
     </div>
   )
