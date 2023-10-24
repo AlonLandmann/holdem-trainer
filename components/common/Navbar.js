@@ -32,7 +32,7 @@ export default function Navbar({ user }) {
         </div>
         <div className={css.navs}>
           <nav><Link href='/ranges'>ranges</Link></nav>
-          <nav><Link href='/training'>training</Link></nav>
+          <nav><Link href='/sessions'>training</Link></nav>
         </div>
         {!user &&
           <div className={css.auth}>
