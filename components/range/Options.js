@@ -22,7 +22,7 @@ export default function Options({ range, setRange }) {
       let newRange = cloneDeep(prev)
       let newColor = '#fafafa'
 
-      while (range.options.map(option => option.color).indexOf(newColor) > -1) {
+      while (range.options.map(option => option.color).includes(newColor)) {
         newColor = colors[Math.floor(colors.length * Math.random())]
       }
 

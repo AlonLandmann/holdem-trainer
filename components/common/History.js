@@ -15,7 +15,7 @@ export default function History({ range }) {
     const positionsThatFolded = []
 
     for (let i = 0; i < history.length; i += 1) {
-      if (positionsThatFolded.indexOf(newHistory.length % range.nrPlayers) > -1) {
+      if (positionsThatFolded.includes(newHistory.length % range.nrPlayers)) {
         newHistory.push(null)
         i -= 1;
 
