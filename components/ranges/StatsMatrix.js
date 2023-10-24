@@ -43,8 +43,8 @@ export default function StatsMatrix({ user, range, maxWidth }) {
       }
 
       return {
-        color: `rgba(${(100 - accuracy)/3}%, ${accuracy/3}%, ${10}%, 1)`,
-        background: `rgba(${100 - accuracy}%, ${accuracy}%, ${30}%, 0.3)`
+        color: `rgba(${(100 - accuracy)/3}%, ${accuracy/3}%, 10%, 1)`,
+        background: `rgba(${100 - accuracy}%, ${accuracy}%, 30%, 0.3)`
       }
     }
   }
