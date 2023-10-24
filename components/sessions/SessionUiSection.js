@@ -22,7 +22,7 @@ export default function SessionUiSection({ user }) {
         <div>start new session</div>
       </div>
       <div className={css.stats}>
-        Last {user.sessions.length} sessions: {correct} · {total} · {accuracy}%
+        Last {user.sessions.length} sessions: {correct} / {total} · {accuracy}%
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import Combo from '@/components/sessions/Combo'
 import css from '@/scss/sessions/SessionData.module.scss'
 
 export default function SessionData({ session }) {
-  const [inView, setInView] = useState(true)
+  const [inView, setInView] = useState(false)
 
   const handleToggle = () => {
     setInView(prev => !prev)
@@ -26,7 +26,7 @@ export default function SessionData({ session }) {
           {session.startedAt.slice(0, 19)}
         </div>
         <div className={css.stats}>
-          {correct} · {total} · {accuracy}%
+          {correct} / {total} · {accuracy}%
         </div>
       </div>
       {inView &&

@@ -13,7 +13,9 @@ export default function RangesUiSection({ user, selected }) {
     putUser(user.email, updatedUser, () => { location.reload() })
   }
 
-  const handleStartSession = () => {
+  const handleStartSession = (event) => {
+    event.stopPropagation()
+    
     let session = newSession(selected)
 
     localStorage.setItem('session', JSON.stringify(session))
