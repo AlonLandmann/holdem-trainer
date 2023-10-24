@@ -14,7 +14,7 @@ export default function Hero() {
         />
       </div>
       <div className={css.content}>
-        <h1>Build your game</h1>
+        <h1>Refine your game</h1>
         <h3>Create your own custom poker ranges and train them on Holdem Trainer for free.</h3>
       </div>
     </div>

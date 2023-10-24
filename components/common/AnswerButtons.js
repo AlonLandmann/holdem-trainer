@@ -3,7 +3,7 @@ import toast from 'react-hot-toast'
 import { correctAnswer } from '@/lib/cards'
 import css from '@/scss/session/AnswerButtons.module.scss'
 
-export default function AnswerButtons({ session, range, combo, stats, setStats, setIsEnding }) {
+export default function AnswerButtons({ session, range, combo, stats, setStats }) {
   const handleAnswer = (isCorrect) => {
     const dataPoint = {
       range: { id: range.id, name: range.name },
@@ -17,7 +17,7 @@ export default function AnswerButtons({ session, range, combo, stats, setStats, 
       toast.error('false', { duration: 2000 })
     }
 
-    if (stats.length < session.limit) {
+    if (!session || stats.length < session.limit) {
       setStats(prev => prev.concat([dataPoint]))
     }
   }

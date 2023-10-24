@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { cloneDeep } from 'lodash'
 import History from '@/components/common/History'
+import AnswerButtons from '@/components/common/AnswerButtons'
+import Card from '@/components/common/Card'
 import SavingScreen from '@/components/session/SavingScreen'
 import TopLine from '@/components/session/TopLine'
-import Card from '@/components/session/Card'
-import AnswerButtons from '@/components/session/AnswerButtons'
 import { putUser } from '@/db/dbFetch'
 import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
@@ -73,7 +73,6 @@ export default function Session({ user, session }) {
           combo={combo}
           stats={stats}
           setStats={setStats}
-          setIsEnding={setIsEnding}
         />
       </div>
     </div>
