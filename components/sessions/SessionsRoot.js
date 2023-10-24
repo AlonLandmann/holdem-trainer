@@ -21,7 +21,7 @@ export default function SessionsRoot() {
     <div>
       <Navbar user={user} />
       <div className={css.main}>
-        <SessionUiSection />
+        <SessionUiSection user={user} />
         <PastSessions user={user} />
       </div>
     </div>
