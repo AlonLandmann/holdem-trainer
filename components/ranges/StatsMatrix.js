@@ -3,7 +3,6 @@ import css from '@/scss/ranges/StatsMatrix.module.scss'
 
 export default function StatsMatrix({ user, range, maxWidth }) {
   const labels = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
-  const colors = range.options.map(option => option.color)
   const style = {
     width: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
     height: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
