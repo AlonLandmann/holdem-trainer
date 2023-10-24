@@ -5,7 +5,7 @@ import { putUser } from '@/db/dbFetch'
 import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/UiButtons.module.scss'
 
-export default function UiButtons({ user, range, handleSaveChanges }) {
+export default function UiButtons({ user, range, handleSaveChanges, statsInView, setStatsInView }) {
   const handleStartSession = () => {
     let session = newSession([range.id])
 
@@ -13,6 +13,10 @@ export default function UiButtons({ user, range, handleSaveChanges }) {
     location.replace(`/sessions/${session.id}`)
   }
   
+  const handleViewStatistics = () => {
+    setStatsInView(prev => !prev)
+  }
+
   const handleEdit = () => {
    location.replace(`/ranges/${range.id}`)
   }
@@ -49,6 +53,11 @@ export default function UiButtons({ user, range, handleSaveChanges }) {
       <Tooltip arrow title='start practice session' placement='right' enterDelay={500}>
         <div onClick={handleStartSession}>
           <i className='bi bi-crosshair'></i>
+        </div>
+      </Tooltip>
+      <Tooltip arrow title='view statistics' placement='right' enterDelay={500}>
+        <div onClick={handleViewStatistics}>
+          <i className={`bi bi-${statsInView ? 'x-lg' : 'bar-chart' }`}></i>
         </div>
       </Tooltip>
       <Tooltip arrow title='save changes' placement='right' enterDelay={500}>

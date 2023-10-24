@@ -10,6 +10,7 @@ import css from '@/scss/ranges/RangeCard.module.scss'
 
 export default function RangeCard({ user, range }) {
   const [formData, setFormData] = useState(cloneDeep(range))
+  const [statsInView, setStatsInView] = useState(false)
 
   const handleSaveChanges = () => {
     let updatedUser = cloneDeep(user)
@@ -32,18 +33,24 @@ export default function RangeCard({ user, range }) {
           {formData.name}
         </div>
         <div className={css.matrix}>
-          {/* <Matrix range={formData} setRange={setFormData} /> */}
-          <StatsMatrix user={user} range={formData} />
+          {statsInView
+            ? <StatsMatrix user={user} range={formData} />
+            : <Matrix range={formData} setRange={setFormData} />
+          }
         </div>
         <div className={css.legend}>
-          {/* <Legend range={formData} /> */}
-          <StatsLegend />
+          {statsInView
+            ? <StatsLegend />
+            : <Legend range={formData} />
+          }
         </div>
       </div>
       <UiButtons
         user={user}
         range={formData}
         handleSaveChanges={handleSaveChanges}
+        statsInView={statsInView}
+        setStatsInView={setStatsInView}
       />
     </div>
   )
