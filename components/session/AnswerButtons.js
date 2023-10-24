@@ -6,7 +6,7 @@ import { correctAnswer } from '@/lib/cards'
 import css from '@/scss/session/AnswerButtons.module.scss'
 
 export default function AnswerButtons({ user, session, range, combo, stats, setStats }) {
-  const finishSession = (sessionToStore)  => {
+  const endSession = (sessionToStore)  => {
     let updatedUser = cloneDeep(user)
 
     updatedUser.sessions.push(sessionToStore)
@@ -29,7 +29,7 @@ export default function AnswerButtons({ user, session, range, combo, stats, setS
     if (stats.length < session.limit - 1) {
       setStats(prev => prev.concat([dataPoint]))
     } else {
-      finishSession({ ...session, data: stats.concat([dataPoint])})
+      endSession({ ...session, data: stats.concat([dataPoint])})
     }
   }
 

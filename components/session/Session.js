@@ -26,7 +26,13 @@ export default function Session({ user, session }) {
 
   return (
     <div className={css.container}>
-      <div className={css.topLine}><TopLine session={session} stats={stats} /></div>
+      <div className={css.topLine}>
+        <TopLine
+          user={user}
+          session={session}
+          stats={stats}
+        />
+      </div>
       <div className={css.name}>{range.name}</div>
       <div className={css.history}><History range={range} /></div>
       <div className={css.combo}><Card card={combo[0]} /><Card card={combo[1]} /></div>
