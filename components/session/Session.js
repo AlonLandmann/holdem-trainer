@@ -9,6 +9,8 @@ import { putUser } from '@/db/dbFetch'
 import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
 
+const SESSION_STORAGE_LIMIT = 20
+
 export default function Session({ user, session }) {
   const newRange = randomRange(user, session)
   const newCombo = randomCombo(newRange)
@@ -36,6 +38,11 @@ export default function Session({ user, session }) {
         location.replace('/sessions')
       } else {
         let updatedUser = cloneDeep(user)
+        let excess = updatedUser.sessions.length - SESSION_STORAGE_LIMIT
+
+        if (excess >= 0) {
+          updatedUser.sessions.splice(0, excess + 1)
+        }
 
         updatedUser.sessions.push({ ...session, data: stats })
         putUser(user.email, updatedUser, () => { location.replace('/sessions') })
