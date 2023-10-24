@@ -63,7 +63,7 @@ export default function UiButtons({ user, range, handleSaveChanges }) {
       </Tooltip>
       <Tooltip arrow title='duplicate range' placement='right' enterDelay={500}>
         <div onClick={handleDuplicate}>
-          <i className='bi bi-layout-split'></i>
+          <i className='bi bi-copy'></i>
         </div>
       </Tooltip>
       <Tooltip arrow title='delete range' placement='right' enterDelay={500}>
