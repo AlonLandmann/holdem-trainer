@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import Button from '@/components/common/Button'
+import { tallySignUps } from '@/db/dbTrack'
 import css from '@/scss/auth/SignupRoot.module.scss'
 
 export default function SignupRoot() {
@@ -35,9 +36,11 @@ export default function SignupRoot() {
     const signupJson = await signupRes.json()
 
     if (signupJson.success) {
-      location.replace('/')
+      // NEW ***
+      await tallySignUps(signupJson.newUser)
+      // NEW ***
 
-      // HANDLE dsu
+      location.replace('/')
     } else {
       toast.error('an unexpected error occurred')
     }
