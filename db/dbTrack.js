@@ -21,11 +21,11 @@ export async function tallyActiveUser(user) {
 
     json = await res.json()
 
-    if (json.success) {
-      console.log('active user added to existing day')
-    } else {
-      console.log('error while adding active user')
-    }
+    // if (json.success) {
+    //   console.log('active user added to existing day')
+    // } else {
+    //   console.log('error while adding active user')
+    // }
   } else {
     let day = createNewDay(date)
 
@@ -39,10 +39,10 @@ export async function tallyActiveUser(user) {
 
     json = await res.json()
 
-    if (json.success) {
-      console.log('active user added to new day')
-    } else {
-      console.log('error while adding active user')
-    }
+    // if (json.success) {
+    //   console.log('active user added to new day')
+    // } else {
+    //   console.log('error while adding active user')
+    // }
   }
 }
