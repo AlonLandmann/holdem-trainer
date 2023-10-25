@@ -59,3 +59,24 @@ export async function tallySignUps() {
     post(day)
   }
 }
+
+export async function tallyCombosTrained(amount) {
+  const date = yyyymmdd(new Date())
+
+  let res = await fetch(`/api/days/${date}`)
+  let json = await res.json()
+
+  if (json.success) {
+    let day = json.data
+
+    day.combosTrained += amount
+
+    put(date, day)
+  } else {
+    let day = createNewDay(date)
+
+    day.combosTrained += amount
+
+    post(day)
+  }
+}

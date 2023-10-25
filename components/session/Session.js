@@ -6,6 +6,7 @@ import Card from '@/components/common/Card'
 import SavingScreen from '@/components/session/SavingScreen'
 import TopLine from '@/components/session/TopLine'
 import { putUser } from '@/db/dbFetch'
+import { tallyCombosTrained } from '@/db/dbTrack'
 import { randomRange, randomCombo } from '@/lib/cards'
 import css from '@/scss/session/Session.module.scss'
 
@@ -46,9 +47,12 @@ export default function Session({ user, session }) {
 
         updatedUser.sessions.push({ ...session, data: stats })
 
-        // TRACK ttu
-
-        putUser(user.email, updatedUser, () => { location.replace('/sessions') })
+        putUser(user.email, updatedUser, async () => {
+          // NEW ***
+          await tallyCombosTrained(stats.length)
+          // NEW ***
+          location.replace('/sessions')
+        })
       }
     }
   }, [isEnding])
