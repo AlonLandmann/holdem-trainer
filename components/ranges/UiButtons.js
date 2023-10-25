@@ -2,6 +2,8 @@ import { cloneDeep } from 'lodash'
 import { v4 as uuid } from 'uuid'
 import Tooltip from '@mui/material/Tooltip'
 import { putUser } from '@/db/dbFetch'
+import { tallyRangeDuplications } from '@/db/dbTrack'
+import { tallyRangeDeletions } from '@/db/dbTrack'
 import css from '@/scss/ranges/UiButtons.module.scss'
 
 export default function UiButtons({ user, range, handleSaveChanges, statsInView, setStatsInView }) {
@@ -21,8 +23,12 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
     duplicateRange.name = duplicateRange.name + ' - copy'
     updatedUser.ranges.push(duplicateRange)
 
-    // Handle RE
-    putUser(user.email, updatedUser, () => { location.reload() })
+    putUser(user.email, updatedUser, async () => {
+      // NEW ***
+      await tallyRangeDuplications()
+      // NEW ***
+      location.reload()
+    })
   }
 
   const handleDelete = () => {
@@ -37,8 +43,12 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
         }
       }
 
-      // HANDLE re
-      putUser(user.email, updatedUser, () => { location.reload() })
+      putUser(user.email, updatedUser, async () => {
+        // NEW ***
+        await tallyRangeDeletions()
+        // NEW ***
+        location.reload()
+      })
     }
   }
 

@@ -80,3 +80,87 @@ export async function tallyCombosTrained(amount) {
     post(day)
   }
 }
+
+export async function tallyRangeAdditions() {
+  const date = yyyymmdd(new Date())
+
+  let res = await fetch(`/api/days/${date}`)
+  let json = await res.json()
+
+  if (json.success) {
+    let day = json.data
+
+    day.rangeAdditions++
+
+    put(date, day)
+  } else {
+    let day = createNewDay(date)
+
+    day.rangeAdditions++
+
+    post(day)
+  }
+}
+
+export async function tallyRangeDuplications() {
+  const date = yyyymmdd(new Date())
+
+  let res = await fetch(`/api/days/${date}`)
+  let json = await res.json()
+
+  if (json.success) {
+    let day = json.data
+
+    day.rangeDuplications++
+
+    put(date, day)
+  } else {
+    let day = createNewDay(date)
+
+    day.rangeDuplications++
+
+    post(day)
+  }
+}
+
+export async function tallyRangeEdits() {
+  const date = yyyymmdd(new Date())
+
+  let res = await fetch(`/api/days/${date}`)
+  let json = await res.json()
+
+  if (json.success) {
+    let day = json.data
+
+    day.rangeEdits++
+
+    put(date, day)
+  } else {
+    let day = createNewDay(date)
+
+    day.rangeEdits++
+
+    post(day)
+  }
+}
+
+export async function tallyRangeDeletions() {
+  const date = yyyymmdd(new Date())
+
+  let res = await fetch(`/api/days/${date}`)
+  let json = await res.json()
+
+  if (json.success) {
+    let day = json.data
+
+    day.rangeDeletions++
+
+    put(date, day)
+  } else {
+    let day = createNewDay(date)
+
+    day.rangeDeletions++
+
+    post(day)
+  }
+}

@@ -6,6 +6,7 @@ import Matrix from '@/components/common/Matrix'
 import Label from '@/components/range/Label'
 import Options from '@/components/common/Options'
 import { putUser } from '@/db/dbFetch'
+import { tallyRangeEdits } from '@/db/dbTrack'
 import { getPositions } from '@/lib/positions'
 import css from '@/scss/range/RangeEditor.module.scss'
 
@@ -41,9 +42,12 @@ export default function RangeEditor({ user, range, setRange }) {
       }
     }
 
-    // TRACK re
-
-    putUser(user.email, updatedUser, () => { location.replace('/ranges') })
+    putUser(user.email, updatedUser, async () => {
+      // NEW ***
+      await tallyRangeEdits()
+      // NEW ***
+      location.replace('/ranges')
+    })
   }
 
   return (

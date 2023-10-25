@@ -1,5 +1,6 @@
 import { cloneDeep } from 'lodash'
 import { putUser } from '@/db/dbFetch'
+import { tallyRangeAdditions } from '@/db/dbTrack'
 import { newRange } from '@/lib/ranges'
 import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/RangesUiSection.module.scss'
@@ -9,9 +10,13 @@ export default function RangesUiSection({ user, selected }) {
     const updatedUser = cloneDeep(user)
 
     updatedUser.ranges.unshift(newRange)
-    // TRACK re
 
-    putUser(user.email, updatedUser, () => { location.reload() })
+    putUser(user.email, updatedUser, async () => {
+      // NEW ***
+      await tallyRangeAdditions()
+      // NEW ***
+      location.reload()
+    })
   }
 
   const handleStartSession = (event) => {

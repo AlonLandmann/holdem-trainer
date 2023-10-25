@@ -6,6 +6,7 @@ import StatsMatrix from '@/components/ranges/StatsMatrix'
 import StatsLegend from '@/components/ranges/StatsLegend'
 import UiButtons from '@/components/ranges/UiButtons'
 import { putUser } from '@/db/dbFetch'
+import { tallyRangeEdits } from '@/db/dbTrack'
 import { newSession } from '@/lib/sessions'
 import css from '@/scss/ranges/RangeCard.module.scss'
 import Button from '../common/Button'
@@ -38,8 +39,13 @@ export default function RangeCard({ user, range, handleSelectionChange }) {
       }
     }
 
-    // TRACK re
-    putUser(user.email, updatedUser, () => { location.reload() })
+    putUser(user.email, updatedUser, async () => {
+      // NEW ***
+      await tallyRangeEdits()
+      // NEW ***
+      
+      location.reload()
+    })
   }
 
   return (
