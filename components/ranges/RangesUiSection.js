@@ -9,6 +9,7 @@ export default function RangesUiSection({ user, selected }) {
     const updatedUser = cloneDeep(user)
 
     updatedUser.ranges.unshift(newRange)
+    // TRACK re
 
     putUser(user.email, updatedUser, () => { location.reload() })
   }

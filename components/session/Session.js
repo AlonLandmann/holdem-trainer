@@ -45,6 +45,9 @@ export default function Session({ user, session }) {
         }
 
         updatedUser.sessions.push({ ...session, data: stats })
+
+        // TRACK ttu
+
         putUser(user.email, updatedUser, () => { location.replace('/sessions') })
       }
     }

@@ -38,6 +38,7 @@ export default function RangeCard({ user, range, handleSelectionChange }) {
       }
     }
 
+    // TRACK re
     putUser(user.email, updatedUser, () => { location.reload() })
   }
 

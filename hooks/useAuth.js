@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { tallyActiveUser } from '@/db/dbTrack'
 
 export default function useAuth() {
   const [auth, setAuth] = useState({ isLoading: true, user: null })
@@ -9,6 +10,10 @@ export default function useAuth() {
 
     if (json.user) {
       setAuth({ isLoading: false, user: json.user })
+      
+      // NEW ***
+      tallyActiveUser(json.user)
+      // NEW ***
     } else {
       setAuth({ isLoading: false, user: null })
     }

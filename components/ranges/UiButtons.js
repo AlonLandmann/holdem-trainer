@@ -10,7 +10,7 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
   }
 
   const handleEdit = () => {
-   location.replace(`/ranges/${range.id}`)
+    location.replace(`/ranges/${range.id}`)
   }
 
   const handleDuplicate = () => {
@@ -21,6 +21,7 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
     duplicateRange.name = duplicateRange.name + ' - copy'
     updatedUser.ranges.push(duplicateRange)
 
+    // Handle RE
     putUser(user.email, updatedUser, () => { location.reload() })
   }
 
@@ -36,6 +37,7 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
         }
       }
 
+      // HANDLE re
       putUser(user.email, updatedUser, () => { location.reload() })
     }
   }

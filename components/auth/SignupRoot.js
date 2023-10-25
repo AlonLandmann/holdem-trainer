@@ -36,6 +36,8 @@ export default function SignupRoot() {
 
     if (signupJson.success) {
       location.replace('/')
+
+      // HANDLE dsu
     } else {
       toast.error('an unexpected error occurred')
     }
