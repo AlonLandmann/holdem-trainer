@@ -34,10 +34,12 @@ export default function Admin({ days }) {
 
   const divs = []
 
-  days = days.reverse().slice(1)
+  days.reverse()
 
-  for (let i = 0; i < days.length; i++) {
-    const day = days[i]
+  const rest = days.slice(1)
+
+  for (let i = 0; i < rest.length; i++) {
+    const day = rest[i]
 
     divs.push(
       <div key={`${i}a`}>
@@ -84,15 +86,15 @@ export default function Admin({ days }) {
       <div className={css.ravgs}>{Math.round(100 * (raRM / Math.min(5, days.length))) / 100}</div>
 
       <div className={css.today}>today</div>
-      <div className={css.today}>{days[days.length - 1].signUps}</div>
-      <div className={css.today}>{days[days.length - 1].activeUsers.length}</div>
-      <div className={css.today}>{days[days.length - 1].combosTrained}</div>
+      <div className={css.today}>{days[0].signUps}</div>
+      <div className={css.today}>{days[0].activeUsers.length}</div>
+      <div className={css.today}>{days[0].combosTrained}</div>
       <div className={css.today}>
         {
-          days[days.length - 1].rangeAdditions +
-          days[days.length - 1].rangeDuplications +
-          days[days.length - 1].rangeEdits +
-          days[days.length - 1].rangeEdits
+          days[0].rangeAdditions +
+          days[0].rangeDuplications +
+          days[0].rangeEdits +
+          days[0].rangeEdits
         }
       </div>
 
