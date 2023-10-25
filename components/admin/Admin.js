@@ -73,17 +73,17 @@ export default function Admin({ days }) {
       <div className={css.headings}>combos t.</div>
       <div className={css.headings}>range m.</div>
 
-      <div className={css.totals}>total</div>
-      <div className={css.totals}>{ttSU}</div>
-      <div className={css.totals}>-</div>
-      <div className={css.totals}>{ttCT}</div>
-      <div className={css.totals}>{ttRM}</div>
-
       <div className={css.ravgs}>run. avg.</div>
       <div className={css.ravgs}>{Math.round(100 * (raSU / Math.min(5, days.length))) / 100}</div>
       <div className={css.ravgs}>{Math.round(100 * (raAU / Math.min(5, days.length))) / 100}</div>
       <div className={css.ravgs}>{Math.round(100 * (raCT / Math.min(5, days.length))) / 100}</div>
       <div className={css.ravgs}>{Math.round(100 * (raRM / Math.min(5, days.length))) / 100}</div>
+
+      <div className={css.totals}>total</div>
+      <div className={css.totals}>{ttSU}</div>
+      <div className={css.totals}>-</div>
+      <div className={css.totals}>{ttCT}</div>
+      <div className={css.totals}>{ttRM}</div>
 
       <div className={css.today}>today</div>
       <div className={css.today}>{days[0].signUps}</div>
