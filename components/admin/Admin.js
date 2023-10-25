@@ -1,6 +1,13 @@
+import { createNewDay, yyyymmdd } from '@/lib/days'
 import css from '@/scss/admin/Admin.module.scss'
 
 export default function Admin({ days }) {
+  const date = yyyymmdd(new Date())
+
+  if (days[days.length - 1].date !== date) {
+    days.push(date)
+  }
+
   let ttSU = 0
   let mxAU = 0
   let ttCT = 0
