@@ -1,0 +1,27 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 10px;
+}
+
+.headings {
+  font-weight: 500;
+}
+
+.totals {
+  font-weight: 500;
+  color: #0a6ddd;
+}
+
+.ravgs {
+  font-weight: 500;
+  color: #de3c3c;
+}
+
+.today {
+  font-weight: 500;
+  color: #2e9717;
+}

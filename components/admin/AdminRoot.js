@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
+import Admin from '@/components/admin/Admin'
 import useAuth from '@/hooks/useAuth'
-import css from '@/scss/admin/AdminRoot.module.scss'
 
-export default function AdminRoot() {
+export default function AdminRoot({ days }) {
   const { isLoading, user } = useAuth()
 
   useEffect(() => {
@@ -15,8 +15,8 @@ export default function AdminRoot() {
   if (isLoading || !user.admin) return null
 
   return (
-    <div className={css.container}>
-      Admin
+    <div>
+      <Admin days={days} />
     </div>
   )
 }
