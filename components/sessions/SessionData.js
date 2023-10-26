@@ -3,7 +3,7 @@ import Combo from '@/components/sessions/Combo'
 import css from '@/scss/sessions/SessionData.module.scss'
 
 export default function SessionData({ session }) {
-  const [inView, setInView] = useState(false)
+  const [inView, setInView] = useState(true)
 
   const handleToggle = () => {
     setInView(prev => !prev)

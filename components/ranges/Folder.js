@@ -3,7 +3,7 @@ import RangeCard from '@/components/ranges/RangeCard'
 import css from '@/scss/ranges/Folder.module.scss'
 
 export default function Folder({ user, folder, handleSelectionChange }) {
-  const [inView, setInView] = useState(false)
+  const [inView, setInView] = useState(true)
 
   const handleToggle = () => {
     setInView(prev => !prev)
