@@ -9,10 +9,10 @@ import css from '@/scss/home/Demo.module.scss'
 
 export default function Demo() {
   const [range, setRange] = useState(sampleRange)
-  const [combo, setCombo] = useState(randomCombo(sampleRange))
+  const [combo, setCombo] = useState([['A', 's'], ['K', 'h']])
   const [stats, setStats] = useState([])
 
-  useEffect(() => { setCombo(randomCombo(range)) }, [stats])
+  useEffect(() => { if (stats.length) setCombo(randomCombo(range)) }, [stats])
 
   return (
     <div className={css.container}>
