@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
           await Session.create(newSession)
 
-          res.setHeader('Set-Cookie', `sessionId=${newSession.id}; HttpOnly; SameSite=Strict; Max-Age=864000`)
+          res.setHeader('Set-Cookie', `sessionId=${newSession.id}; HttpOnly; SameSite=Strict; Max-Age=31536000`)
           res.status(201).json({ success: true })
         }
 
