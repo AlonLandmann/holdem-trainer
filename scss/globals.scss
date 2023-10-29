@@ -12,6 +12,13 @@ body {
   color: #222;
 }
 
+button {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
 input,
 select {
   min-width: 0;

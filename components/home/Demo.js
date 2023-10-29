@@ -15,7 +15,7 @@ export default function Demo() {
   useEffect(() => { if (stats.length) setCombo(randomCombo(range)) }, [stats])
 
   return (
-    <div className={css.container}>
+    <div id='demo' className={css.container}>
       <div className={css.column}>
         <h1>1. Define your range</h1>
         <p>
