@@ -40,7 +40,7 @@ export default function SignupRoot() {
       await tallySignUps(signupJson.newUser)
       // NEW ***
 
-      location.replace('/')
+      location.replace('/ranges')
     } else {
       toast.error('an unexpected error occurred')
     }

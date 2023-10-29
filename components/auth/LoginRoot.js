@@ -26,7 +26,7 @@ export default function LoginRoot() {
     const json = await res.json()
 
     if (json.success) {
-      location.replace('/')
+      location.replace('/ranges')
     } else if (json.reason) {
       toast.error(json.reason)
     } else {
