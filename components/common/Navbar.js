@@ -5,8 +5,8 @@ import Button from '@/components/common/Button'
 import css from '@/scss/common/Navbar.module.scss'
 
 export default function Navbar({ user }) {
-  const handleSignUp = () => {
-    location.replace('/signup')
+  const handleLogin = () => {
+    location.replace('/login')
   }
 
   const handleLogout = async () => {
@@ -36,8 +36,8 @@ export default function Navbar({ user }) {
         </div>
         {!user &&
           <div className={css.auth}>
-            <Button theme='dark' onClick={handleSignUp}>
-              Sign up
+            <Button theme='dark' onClick={handleLogin}>
+              Log in
             </Button>
           </div>
         }
