@@ -4,7 +4,7 @@ import Logo from '@/components/common/Logo'
 import Button from '@/components/common/Button'
 import css from '@/scss/common/Navbar.module.scss'
 
-export default function Navbar({ user }) {
+export default function Navbar({ user, landing }) {
   const handleSignup = () => {
     location.replace('/signup')
   }
@@ -27,17 +27,19 @@ export default function Navbar({ user }) {
   return (
     <div className={css.container}>
       <div className={css.content}>
-        <div onClick={() => { location.replace('/') }}>
+        <div className={css.logo} onClick={() => { location.replace('/') }}>
           <Logo />
         </div>
-        <div className={css.navs}>
-          <nav><Link href='/ranges'>ranges</Link></nav>
-          <nav><Link href='/sessions'>training</Link></nav>
-        </div>
+        {(!landing || user) &&
+          <div className={css.navs}>
+            <nav><Link href='/ranges'>ranges</Link></nav>
+            <nav><Link href='/sessions'>training</Link></nav>
+          </div>
+        }
         {!user &&
           <div className={css.auth}>
             <Button theme='dark' onClick={handleSignup}>
-              Create Account
+              Create account
             </Button>
           </div>
         }
