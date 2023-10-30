@@ -10,7 +10,7 @@ export default function HomeRoot() {
 
   return (
     <div>
-      <Navbar user={user} />
+      <Navbar user={user} landing={true} />
       <Hero />
       <Demo />
     </div>
