@@ -1,9 +1,11 @@
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 498px;
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 
   &>div {
+    width: 160px;
     padding: 15px 22px;
     border-radius: 2px;
     display: flex;

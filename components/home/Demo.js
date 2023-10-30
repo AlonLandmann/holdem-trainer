@@ -24,12 +24,11 @@ export default function Demo() {
           <div className={css.stepContent}>
             <h1>1. The Scenario</h1>
             <p>
-              You're playing a 6-player game of Texas Hold'em.{' '}
-              You're sitting in the <strong>big blind</strong> and have posted <strong>$2</strong> to play the hand.{' '}
+              You're playing a 6-player game of Texas Hold'em,{' '}
+              and you're sitting on the right of the player with the dealer button. This is known as the cutoff position.
             </p>
             <p>
-              The first three players to act have all folded, but the player with the dealer button has made a raise to <strong>$6</strong>.{' '}
-              The small blind folds, and now the action is on you.
+              The blinds of $1 and $2 have been posted, the first two players to act have both folded, and now the action is on you.
             </p>
             <p>
               You have the cards shown. What do you do? Keep scrolling to find out.
@@ -80,7 +79,7 @@ export default function Demo() {
           <div className={css.stepContent}>
             <h1>3. Start training</h1>
             <p>
-              Click the button corresponding to the action you have determined to take for this hand.{' '}
+              Click the button or press the hotkey corresponding to the action you have determined to take for this hand.{' '}
               The trainer will provide you with feedback on whether your answer was correct.
             </p>
             <p>
