@@ -27,7 +27,7 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
       // NEW ***
       await tallyRangeDuplications()
       // NEW ***
-      location.reload()
+      location.replace(`/ranges/${duplicateRange.id}`)
     })
   }
 

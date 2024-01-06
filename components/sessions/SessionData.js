@@ -3,7 +3,7 @@ import Combo from '@/components/sessions/Combo'
 import css from '@/scss/sessions/SessionData.module.scss'
 
 export default function SessionData({ session }) {
-  const [inView, setInView] = useState(true)
+  const [inView, setInView] = useState(false)
 
   const handleToggle = () => {
     setInView(prev => !prev)
@@ -16,14 +16,16 @@ export default function SessionData({ session }) {
   return (
     <div className={css.container}>
       <div className={css.topLine} onClick={handleToggle}>
-        <div className={css.chevron}>
-          {inView
-            ? <i className='bi bi-chevron-down'></i>
-            : <i className='bi bi-chevron-right'></i>
-          }
-        </div>
-        <div className={css.name}>
-          {session.startedAt.slice(0, 19)}
+        <div className={css.chevronAndDate}>
+          <div className={css.chevron}>
+            {inView
+              ? <i className='bi bi-chevron-down'></i>
+              : <i className='bi bi-chevron-right'></i>
+            }
+          </div>
+          <div className={css.name}>
+            {session.startedAt.slice(0, 19)}
+          </div>
         </div>
         <div className={css.stats}>
           {correct} / {total} · {accuracy}%

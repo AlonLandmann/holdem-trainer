@@ -1,4 +1,4 @@
-import css from '@/scss/ranges/Legend.module.scss'
+import css from '@/scss/ranges/StatsLegend.module.scss'
 
 export default function StatsLegend() {
   return (

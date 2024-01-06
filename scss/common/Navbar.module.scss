@@ -33,12 +33,15 @@
   }
 
   @media only screen and (max-width: 480px) {
+    margin-right: 25px;
     gap: 15px;
+    font-size: 15px;
+  }
+
+  @media only screen and (max-width: 420px) {
+    margin-right: 15px;
+    gap: 8px;
+    font-size: 14px;
   }
 }
 
-.auth {
-  @media only screen and (max-width: 480px) {
-    margin-left: 25px;
-  }
-}

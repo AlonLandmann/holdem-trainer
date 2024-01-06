@@ -38,7 +38,7 @@ export default function LoginRoot() {
     <div className={css.root}>
       <form className={css.form} onSubmit={handleSubmit}>
         <div className={css.logo}><i className='bi bi-suit-club-fill'></i></div>
-        <div className={css.heading}>Hi</div>
+        <div className={css.heading}>Welcome back!</div>
         <div className={css.instructions}>Enter your credentials to log in.</div>
         <label htmlFor='email'>Email</label>
         <input
@@ -56,7 +56,7 @@ export default function LoginRoot() {
           value={formData.password}
           onChange={handleChange}
         />
-        <Button large theme='primary'>log in</Button>
+        <Button large theme='dark'>log in</Button>
         <div className={css.redirect}>
           Don't have an account yet? <Link className={css.link} href='/signup'>Sign up</Link> instead.
         </div>

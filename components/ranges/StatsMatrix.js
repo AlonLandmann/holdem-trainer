@@ -4,8 +4,8 @@ import css from '@/scss/ranges/StatsMatrix.module.scss'
 export default function StatsMatrix({ user, range, maxWidth }) {
   const labels = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
   const style = {
-    width: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
-    height: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
+    width: `min(${maxWidth || 400}px, calc(100vw - 55px))`,
+    height: `min(${maxWidth || 400}px, calc(100vw - 55px))`,
     fontSize: `${maxWidth >= 500 ? 14 : 12}px`
   }
 

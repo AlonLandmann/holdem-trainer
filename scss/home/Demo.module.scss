@@ -49,7 +49,6 @@
     }
   }
 
-
 }
 
 .demoField {
@@ -65,8 +64,14 @@
 }
 
 .combo {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
+
+  &>div:first-child {
+    justify-self: end;
+  }
 }
 
 .demo2 {

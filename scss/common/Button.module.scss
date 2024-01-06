@@ -4,12 +4,29 @@
   border-radius: 3px;
   font-family: inherit;
   font-size: 15px;
+  text-wrap: nowrap;
   cursor: pointer;
   transition: all 0.15s ease;
 
   i {
     margin-right: 10px;
     font-size: 15px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    font-size: 14px;
+
+    i {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 13px;
+
+    i {
+      font-size: 13px;
+    }
   }
 }
 
@@ -23,44 +40,6 @@
   &:hover {
     color: #444;
     border: 1px solid #aaa;
-  }
-}
-
-.primary {
-  @include button;
-  border: 1px solid #ce5252;
-  color: #fff;
-  background: #ce5252;
-
-  &:hover {
-    border: 1px solid #e67f7f;
-    background: #e67f7f;
-  }
-}
-
-.light {
-  @include button;
-  border: 1px solid #fbdfdf;
-  color: #d57878;
-  background: #fbdfdf;
-
-  &:hover {
-    border: 1px solid #d57878;
-    color: #fff;
-    background: #d57878;
-  }
-}
-
-.white {
-  @include button;
-  border: 1px solid #fbdfdf;
-  color: #d57878;
-  background: #fff;
-
-  &:hover {
-    border: 1px solid #d57878;
-    color: #fff;
-    background: #d57878;
   }
 }
 

@@ -14,6 +14,20 @@
   &:hover {
     color: #444;
   }
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 26px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.chevronAndDate {
+  display: flex;
+  gap: 15px;
 }
 
 .name {

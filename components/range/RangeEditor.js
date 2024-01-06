@@ -3,8 +3,9 @@ import { cloneDeep } from 'lodash'
 import Button from '@/components/common/Button'
 import History from '@/components/common/History'
 import Matrix from '@/components/common/Matrix'
-import Label from '@/components/range/Label'
 import Options from '@/components/common/Options'
+import Label from '@/components/range/Label'
+import Legend from '@/components/ranges/Legend'
 import { putUser } from '@/db/dbFetch'
 import { tallyRangeEdits } from '@/db/dbTrack'
 import { getPositions } from '@/lib/positions'
@@ -138,11 +139,16 @@ export default function RangeEditor({ user, range, setRange }) {
             setRange={setRange}
             maxWidth={440}
           />
+          <div className={css.legend}>
+            <Legend
+              range={range}
+            />
+          </div>
         </div>
         <div>
           <Label
             text='Options'
-            tooltip='This is the legend for the solution matrix below. Decide which options are available for your actions at this spot. Every option provided here can be given as a solution for specific hands in the matrix below. You can click on the color selectors to change the colors of the different options. The "not in range" option is always given.'
+            tooltip='This is the legend for the solution matrix. Decide which options are available for your actions at this spot. Every option provided here can be given as a solution for specific hands in the matrix. You can click on the color selectors to change the colors of the different options. The "not in range" option is always given.'
           />
           <Options
             range={range}

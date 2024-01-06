@@ -15,7 +15,7 @@ export default function RangesUiSection({ user, selected }) {
       // NEW ***
       await tallyRangeAdditions()
       // NEW ***
-      location.reload()
+      location.replace(`/ranges/${newRange.id}`)
     })
   }
 

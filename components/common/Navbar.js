@@ -32,8 +32,9 @@ export default function Navbar({ user, landing }) {
         </div>
         {(!landing || user) &&
           <div className={css.navs}>
-            <nav><Link href='/ranges'>ranges</Link></nav>
-            <nav><Link href='/sessions'>training</Link></nav>
+            {/* <nav><Link href='/tutorial'>Tutorial</Link></nav> */}
+            <nav><Link href='/ranges'>My Ranges</Link></nav>
+            <nav><Link href='/sessions'>Training</Link></nav>
           </div>
         }
         {!user &&
@@ -44,7 +45,7 @@ export default function Navbar({ user, landing }) {
           </div>
         }
         {user &&
-          <div className={css.auth}>
+          <div>
             <Button theme='gray-white' onClick={handleLogout}>
               Log out
             </Button>

@@ -1,27 +1,17 @@
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.topLine {
-  display: flex;
-  gap: 15px;
-  font-size: 32px;
-  color: #aaa;
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  &:hover {
-    color: #444;
-  }
+.main {
+  padding: 30px 40px 40px;
 
   @media only screen and (max-width: 1000px) {
-    font-size: 26px;
+    padding: 20px 30px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    padding: 20px;
   }
 }
 
-.ranges {
-  align-self: center;
+.folder {
+  // align-self: center;
   padding: 30px 20px;
   display: inline-grid;
   justify-items: flex-start;

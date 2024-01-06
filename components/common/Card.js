@@ -1,5 +1,5 @@
 import { suitNames } from '@/lib/cards'
-import css from '@/scss/session/Card.module.scss'
+import css from '@/scss/common/Card.module.scss'
 
 export default function Card({ card }) {
   const suit = suitNames[card[1]]

@@ -42,6 +42,22 @@ select {
       color: #fff;
     }
   }
+
+  @media only screen and (max-width: 680px) {
+    font-size: 14px;
+
+    i {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 13px;
+
+    i {
+      font-size: 13px;
+    }
+  }
 }
 
 a {

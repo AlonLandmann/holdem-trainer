@@ -43,7 +43,7 @@ export default function RangeCard({ user, range, handleSelectionChange }) {
       // NEW ***
       await tallyRangeEdits()
       // NEW ***
-      
+
       location.reload()
     })
   }
@@ -61,24 +61,28 @@ export default function RangeCard({ user, range, handleSelectionChange }) {
           }
         </div>
         <div className={css.bottom}>
-          {statsInView
-            ? <StatsLegend />
-            : <Legend range={formData} />
-          }
-          <Button
-            theme='gray-white'
-            icon={isSelected ? 'check-square' : 'square'}
-            onClick={handleSelectionToggle}
-          >
-            select
-          </Button>
-          <Button
-            theme='dark'
-            icon='crosshair'
-            onClick={handleStartSession}
-          >
-            train now
-          </Button>
+          <div className={css.legend}>
+            {statsInView
+              ? <StatsLegend />
+              : <Legend range={formData} />
+            }
+          </div>
+          <div className={css.mainButtons}>
+            <Button
+              theme='gray-white'
+              icon={isSelected ? 'check-square' : 'square'}
+              onClick={handleSelectionToggle}
+            >
+              select
+            </Button>
+            <Button
+              theme='dark'
+              icon='crosshair'
+              onClick={handleStartSession}
+            >
+              train now
+            </Button>
+          </div>
         </div>
       </div>
       <UiButtons

@@ -18,25 +18,20 @@
 }
 
 .bottom {
-  display: grid;
-  grid-template-columns: 40% 30% 30%;
-  justify-items: center;
+  display: flex;
+  gap: 5px;
   align-items: start;
 }
 
+.legend {
+  min-width: 40%;
+}
+
 .mainButtons {
+  max-width: 60%;
   display: flex;
-  gap: 10px;
-  font-size: 28px;
-  color: #aaa;
-
-  & div {
-    padding: 4px 8px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-
-    &:hover {
-      color: #555;
-    }
-  }
+  flex-grow: 1;
+  justify-content: flex-end;
+  gap: 5px;
+  flex-wrap: wrap-reverse;
 }

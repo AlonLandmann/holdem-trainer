@@ -7,8 +7,8 @@ export default function Matrix({ range, setRange, maxWidth }) {
   const indices = range.options.map(option => option.index)
   const colors = range.options.map(option => option.color)
   const style = {
-    width: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
-    height: `min(${maxWidth || 400}px, calc(100vw - 50px))`,
+    width: `min(${maxWidth || 400}px, calc(100vw - 55px))`,
+    height: `min(${maxWidth || 400}px, calc(100vw - 55px))`,
     fontSize: `${maxWidth >= 500 ? 14 : 12}px`
   }
 

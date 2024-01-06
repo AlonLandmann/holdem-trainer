@@ -50,7 +50,7 @@ export default function SignupRoot() {
     <div className={css.root}>
       <form className={css.form} onSubmit={handleSubmit}>
         <div className={css.logo}><i className='bi bi-suit-club-fill'></i></div>
-        <div className={css.heading}>Hello</div>
+        <div className={css.heading}>Welcome to Hold'em Trainer!</div>
         <div className={css.instructions}>Complete the form to sign up.</div>
         <label htmlFor='username'>Username</label>
         <input
@@ -76,7 +76,7 @@ export default function SignupRoot() {
           value={formData.password}
           onChange={handleChange}
         />
-        <Button large theme='primary'>sign up</Button>
+        <Button large theme='dark'>sign up</Button>
         <div className={css.redirect}>
           Already have an account? <Link className={css.link} href='/login'>Log in</Link> instead.
         </div>

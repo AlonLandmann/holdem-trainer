@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  max-width: 200px;
+  aspect-ratio: 200 / 275;
+  border: 2px solid;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Rubik', sans-serif;
+  font-size: 100px;
+
+  @media only screen and (max-width: 480px) {
+    font-size: 90px;
+  }
+
+  @media only screen and (max-width: 440px) {
+    font-size: 80px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 70px;
+  }
+
+  i {
+    padding: 8px;
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.6;
+
+    @media only screen and (max-width: 480px) {
+      font-size: 18px;
+    }
+  
+    @media only screen and (max-width: 440px) {
+      padding: 7px;
+      font-size: 16px;
+    }
+  
+    @media only screen and (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+
+  i.topLeft {
+    top: 0;
+    left: 0;
+  }
+
+  i.bottomRight {
+    bottom: 0;
+    right: 0;
+  }
+
+  &.spade {
+    color: #222;
+    border-color: #222;
+    // background-color: #f3f3f3;
+  }
+
+  &.heart {
+    color: #de3c3c;
+    border-color: #de3c3c;
+    // background-color: #ffecec;
+  }
+
+  &.diamond {
+    color: #0a6ddd;
+    border-color: #0a6ddd;
+    // background-color: #eff4fc;
+  }
+
+  &.club {
+    color: #2e9717;
+    border-color: #2e9717;
+    // background-color: #f3fff0;
+  }
+}

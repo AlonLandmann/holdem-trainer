@@ -6,12 +6,12 @@ import Matrix from '@/components/common/Matrix'
 import StatsMatrixDemo from '@/components/home/StatsMatrixDemo'
 import Legend from '@/components/ranges/Legend'
 import StatsLegend from '@/components/ranges/StatsLegend'
-import { sampleRange } from '@/lib/ranges'
+import { demoRange } from '@/lib/ranges'
 import { randomCombo } from '@/lib/cards'
 import css from '@/scss/home/Demo.module.scss'
 
 export default function Demo() {
-  const [range, setRange] = useState(sampleRange)
+  const [range, setRange] = useState(demoRange)
   const [combo, setCombo] = useState([['A', 's'], ['K', 'h']])
   const [stats, setStats] = useState([])
 

@@ -1,5 +1,9 @@
 .container {
   margin-bottom: 40px;
+
+  @media only screen and (max-width: 680px) {
+    margin-bottom: 60px;
+  }
 }
 
 .start {
@@ -14,11 +18,26 @@
   &:hover {
     color: #444;
   }
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 26px;
+  }
 }
 
 .stats {
-  margin-left: 22px;
+  margin-left: 15px;
+  display: flex;
+  gap: 15px;
   font-family: 'Sometype Mono', monospace;
   font-size: 32px;
   color: #888;
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 26px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    flex-direction: column;
+    gap: 5px;
+  }
 }

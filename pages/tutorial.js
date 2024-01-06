@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import HomeRoot from '@/components/home/HomeRoot'
+import TutorialRoot from '@/components/tutorial/TutorialRoot'
 
-export default function HomePage() {
+export default function TutorialPage() {
   return (
     <>
       <Head>
@@ -11,7 +11,7 @@ export default function HomePage() {
       </Head>
 
       <main>
-        <HomeRoot />
+        <TutorialRoot />
       </main>
     </>
   )
