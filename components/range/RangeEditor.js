@@ -85,7 +85,7 @@ export default function RangeEditor({ user, range, setRange }) {
           />
           <Label
             htmlFor='nrPlayers'
-            text='Number of  players'
+            text='Number of players'
           />
           <select
             id='nrPlayers'
