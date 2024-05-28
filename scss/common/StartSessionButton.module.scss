@@ -1,0 +1,25 @@
+.container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 20px 30px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  display: flex;
+  gap: 15px;
+  font-size: 32px;
+  color: #aaa;
+  background-color: #ffffffee;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #444;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+}

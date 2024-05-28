@@ -2,7 +2,7 @@ import { cloneDeep } from 'lodash'
 import { fontColors } from '@/lib/colors'
 import css from '@/scss/common/Matrix.module.scss'
 
-export default function Matrix({ range, setRange, maxWidth }) {
+export default function Matrix({ range, setRange, maxWidth, displayOnly }) {
   const labels = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
   const indices = range.options.map(option => option.index)
   const colors = range.options.map(option => option.color)
@@ -13,13 +13,15 @@ export default function Matrix({ range, setRange, maxWidth }) {
   }
 
   const handleCellChange = (r, c) => {
-    setRange(prev => {
-      const newRange = cloneDeep(prev)
+    if (!displayOnly) {
+      setRange(prev => {
+        const newRange = cloneDeep(prev)
 
-      newRange.matrix[r][c] = (newRange.matrix[r][c] + 1) % indices.length
+        newRange.matrix[r][c] = (newRange.matrix[r][c] + 1) % indices.length
 
-      return newRange
-    })
+        return newRange
+      })
+    }
   }
 
   return (
@@ -33,7 +35,8 @@ export default function Matrix({ range, setRange, maxWidth }) {
               onClick={() => { handleCellChange(r, c) }}
               style={{
                 color: fontColors[colors[range.matrix[r][c]]],
-                background: colors[range.matrix[r][c]]
+                background: colors[range.matrix[r][c]],
+                cursor: displayOnly ? 'auto' : 'pointer'
               }}
             >
               {c >= r ? labels[r] : labels[c]}

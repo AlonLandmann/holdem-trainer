@@ -32,7 +32,7 @@ export default function Navbar({ user, landing }) {
         </div>
         {(!landing || user) &&
           <div className={css.navs}>
-            {/* <nav><Link href='/tutorial'>Tutorial</Link></nav> */}
+            <nav><Link href='/tutorial'>Tutorial</Link></nav>
             <nav><Link href='/ranges'>My Ranges</Link></nav>
             <nav><Link href='/sessions'>Training</Link></nav>
           </div>

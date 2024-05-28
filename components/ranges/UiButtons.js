@@ -6,7 +6,7 @@ import { tallyRangeDuplications } from '@/db/dbTrack'
 import { tallyRangeDeletions } from '@/db/dbTrack'
 import css from '@/scss/ranges/UiButtons.module.scss'
 
-export default function UiButtons({ user, range, handleSaveChanges, statsInView, setStatsInView }) {
+export default function UiButtons({ user, range, handleSaveChanges, statsInView, setStatsInView, displayOnly }) {
   const handleViewStatistics = () => {
     setStatsInView(prev => !prev)
   }
@@ -27,7 +27,7 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
       // NEW ***
       await tallyRangeDuplications()
       // NEW ***
-      location.replace(`/ranges/${duplicateRange.id}`)
+      location.replace(`/ranges`)
     })
   }
 
@@ -54,31 +54,39 @@ export default function UiButtons({ user, range, handleSaveChanges, statsInView,
 
   return (
     <div className={css.container}>
-      <Tooltip arrow title='view statistics' placement='right' enterDelay={500}>
-        <div onClick={handleViewStatistics}>
-          <i className={`bi bi-${statsInView ? 'x-lg' : 'bar-chart' }`}></i>
-        </div>
-      </Tooltip>
-      <Tooltip arrow title='save changes' placement='right' enterDelay={500}>
-        <div onClick={handleSaveChanges}>
-          <i className='bi bi-floppy'></i>
-        </div>
-      </Tooltip>
-      <Tooltip arrow title='edit range details' placement='right' enterDelay={500}>
-        <div onClick={handleEdit}>
-          <i className='bi bi-pen'></i>
-        </div>
-      </Tooltip>
+      {!displayOnly &&
+        <Tooltip arrow title='view statistics' placement='right' enterDelay={500}>
+          <div onClick={handleViewStatistics}>
+            <i className={`bi bi-${statsInView ? 'x-lg' : 'bar-chart'}`}></i>
+          </div>
+        </Tooltip>
+      }
+      {!displayOnly &&
+        <Tooltip arrow title='save changes' placement='right' enterDelay={500}>
+          <div onClick={handleSaveChanges}>
+            <i className='bi bi-floppy'></i>
+          </div>
+        </Tooltip>
+      }
+      {!displayOnly &&
+        <Tooltip arrow title='edit range details' placement='right' enterDelay={500}>
+          <div onClick={handleEdit}>
+            <i className='bi bi-pen'></i>
+          </div>
+        </Tooltip>
+      }
       <Tooltip arrow title='duplicate range' placement='right' enterDelay={500}>
         <div onClick={handleDuplicate}>
           <i className='bi bi-copy'></i>
         </div>
       </Tooltip>
-      <Tooltip arrow title='delete range' placement='right' enterDelay={500}>
-        <div onClick={handleDelete}>
-          <i className='bi bi-trash3'></i>
-        </div>
-      </Tooltip>
+      {!displayOnly &&
+        <Tooltip arrow title='delete range' placement='right' enterDelay={500}>
+          <div onClick={handleDelete}>
+            <i className='bi bi-trash3'></i>
+          </div>
+        </Tooltip>
+      }
     </div>
   )
 }

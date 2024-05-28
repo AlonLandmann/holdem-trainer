@@ -1,4 +1,7 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 30px 40px 40px;
 
   @media only screen and (max-width: 1000px) {
@@ -8,6 +11,35 @@
   @media only screen and (max-width: 680px) {
     padding: 20px;
   }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    width: min(80ch, 100%);
+    color: #333;
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #999;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+}
+
+.heading {
+  width: min(80ch, 100%);
 }
 
 .folder {
@@ -18,11 +50,11 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px;
 
-  @media only screen and (max-width: 1980px)  {
+  @media only screen and (max-width: 1980px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  @media only screen and (max-width: 1505px)  {
+  @media only screen and (max-width: 1505px) {
     padding: 30px 10px;
     gap: 30px;
   }
