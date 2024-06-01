@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { yyyymmdd } from '@/lib/days'
 import css from '@/scss/admin/UserPanel.module.scss'
 import SmallChart from './SmallChart'
+import { totalHands, signUpDate } from '@/lib/analytics'
 
 export default function UserPanel({ user }) {
   const [detailsInView, setDetailsInView] = useState(false)
-
 
   let last14days = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -27,10 +26,11 @@ export default function UserPanel({ user }) {
       <div className={css.summary}>
         <div className={css.text}>{user.username}</div>
         <div className={css.text}>{user.email}</div>
-        <div className={css.text}>{yyyymmdd(new Date(user.createdAt))}</div>
         <div className={css.text}>{user.admin ? 'A' : ''}</div>
-        <div className={css.text}>{user.ranges.length}</div>
-        <div className={css.text}>{user.sessions.length}</div>
+        <div className={css.number}>{signUpDate(new Date(user.createdAt))}</div>
+        <div className={css.number}>{user.ranges.length}</div>
+        <div className={css.number}>{user.sessions.length}</div>
+        <div className={css.number}>{totalHands(user)}</div>
         <div><SmallChart data={last14days} height={20}/></div>
       </div>
       {detailsInView &&

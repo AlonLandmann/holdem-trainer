@@ -1,13 +1,14 @@
 .container {
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(14, 1fr);
   align-items: flex-end;
   gap: 2px;
-  border-bottom: 1px solid rgb(239, 212, 212);
+  border-bottom: 1px solid rgb(212, 228, 239);
+  // border-bottom: 1px solid rgb(239, 212, 212);
 }
 
 .bar {
   width: 100%;
-  background-color: rgb(228, 124, 125);
+  background-color: rgb(124, 192, 228);
+  // background-color: rgb(228, 124, 125);
 }

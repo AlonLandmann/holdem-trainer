@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { sortBy } from 'lodash'
 import UserPanel from '@/components/admin/UserPanel'
 import { getAllUsers, getAllDays } from '@/db/dbFetch'
+import { totalHands } from '@/lib/analytics'
 import css from '@/scss/admin/Admin.module.scss'
 
 export default function Admin() {
@@ -12,7 +13,7 @@ export default function Admin() {
   useEffect(() => {
     (async () => {
       setDays(await getAllDays())
-      setUsers(sortBy(await getAllUsers(), [(obj) => { return -obj.sessions.length }]))
+      setUsers(sortBy(await getAllUsers(), [(user) => { return -totalHands(user) }]))
       setIsLoading(false)
     })()
   }, [])
