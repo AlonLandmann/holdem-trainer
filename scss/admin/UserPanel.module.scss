@@ -1,0 +1,12 @@
+.summary {
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr 1fr 1fr 1fr 4fr;
+  border: 1px solid #ccc;
+  padding: 5px;
+
+  div {
+    padding: 0 3px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+}

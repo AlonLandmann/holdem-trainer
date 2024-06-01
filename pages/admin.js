@@ -1,11 +1,7 @@
 import Head from 'next/head'
-import dbConnect from '@/db/dbConnect'
-import Day from '@/db/models/Day'
 import AdminRoot from '@/components/admin/AdminRoot'
 
-export default function AdminPage({ daysJson }) {
-  const days = JSON.parse(daysJson)
-  
+export default function AdminPage() {
   return (
     <>
       <Head>
@@ -15,16 +11,8 @@ export default function AdminPage({ daysJson }) {
       </Head>
 
       <main>
-        <AdminRoot days={days} />
+        <AdminRoot />
       </main>
     </>
   )
-}
-
-export async function getServerSideProps() {
-  dbConnect()
-
-  const days = await Day.find({}, { _id: 0 }).sort({ date: 1 })
-
-  return { props: { daysJson: JSON.stringify(days) }  }
 }

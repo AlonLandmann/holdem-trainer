@@ -1,5 +1,16 @@
 import { toast } from 'react-hot-toast'
 
+export async function getAllUsers() {
+  const res = await fetch(`/api/users`)
+  const json = await res.json()
+
+  if (json.success) {
+    return json.data
+  } else {
+    toast.error('an unexpected error occured')
+  }
+}
+
 export async function getUser(email) {
   const res = await fetch(`/api/users/${email}`)
   const json = await res.json()
@@ -22,6 +33,17 @@ export async function putUser(email, updatedUser, successCallback) {
 
   if (json.success) {
     successCallback()
+  } else {
+    toast.error('an unexpected error occured')
+  }
+}
+
+export async function getAllDays() {
+  const res = await fetch(`/api/days`)
+  const json = await res.json()
+
+  if (json.success) {
+    return json.data
   } else {
     toast.error('an unexpected error occured')
   }
