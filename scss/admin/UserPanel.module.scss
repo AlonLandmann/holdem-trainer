@@ -1,9 +1,10 @@
 .summary {
   display: grid;
-  grid-template-columns: 2fr 3fr 1fr 1.5fr 1fr 1fr 1fr 4fr;
+  grid-template-columns: 2fr 3fr 1fr 1.5fr 1fr 1fr 1fr 4fr 0.5fr;
   align-items: center;
   border: 1px solid #ccc;
-  padding: 0 15px 0 5px;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
 .text, .number {
@@ -15,4 +16,14 @@
 .number {
   font-family: monospace;
   text-align: center;
+}
+
+.toggle {
+  justify-self: center;
+}
+
+.details {
+  min-height: 200px;
+  border: 1px solid #ccc;
+  border-top: none;
 }

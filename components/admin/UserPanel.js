@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import css from '@/scss/admin/UserPanel.module.scss'
 import SmallChart from './SmallChart'
-import { totalHands, signUpDate } from '@/lib/analytics'
+import { totalHands, signUpDate, handsOnDays } from '@/lib/analytics'
+import UserHistory from './UserHistory'
 
 export default function UserPanel({ user }) {
   const [detailsInView, setDetailsInView] = useState(false)
@@ -23,7 +24,7 @@ export default function UserPanel({ user }) {
 
   return (
     <div className={css.container}>
-      <div className={css.summary}>
+      <div className={css.summary} onClick={() => { setDetailsInView(prev => !prev) }}>
         <div className={css.text}>{user.username}</div>
         <div className={css.text}>{user.email}</div>
         <div className={css.text}>{user.admin ? 'A' : ''}</div>
@@ -32,9 +33,15 @@ export default function UserPanel({ user }) {
         <div className={css.number}>{user.sessions.length}</div>
         <div className={css.number}>{totalHands(user)}</div>
         <div><SmallChart data={last14days} height={20}/></div>
+        <div className={css.toggle}>
+          <i className={`bi bi-chevron-${detailsInView ? 'down' : 'up'}`}></i>
+        </div>
+        
       </div>
       {detailsInView &&
-        <div></div>
+        <div className={css.details}>
+          <UserHistory history={handsOnDays(user)} />
+        </div>
       }
     </div>
   )
