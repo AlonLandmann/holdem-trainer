@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { yyyymmdd } from '@/lib/days'
 import css from '@/scss/admin/UserPanel.module.scss'
+import SmallChart from './SmallChart'
 
 export default function UserPanel({ user }) {
   const [detailsInView, setDetailsInView] = useState(false)
 
 
-  let last14days = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  let last14days = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   user.sessions.forEach(session => {
     let dateOfSession = new Date(session.startedAt)
@@ -16,21 +17,21 @@ export default function UserPanel({ user }) {
     let diffMillis = now - dateOfSession;
     let diffDays = Math.floor(diffMillis / (1000 * 60 * 60 * 24));
 
-    if (diffDays <= 14 && diffDays >= 0) {
-      last14days[14 - diffDays] += session.data.length
+    if (diffDays < 14 && diffDays >= 0) {
+      last14days[13 - diffDays] += session.data.length
     }
   })
 
   return (
     <div className={css.container}>
       <div className={css.summary}>
-        <div>{user.username}</div>
-        <div>{user.email}</div>
-        <div>{yyyymmdd(new Date(user.createdAt))}</div>
-        <div>{user.admin ? 'A' : ''}</div>
-        <div>{user.ranges.length}</div>
-        <div>{user.sessions.length}</div>
-        <div>{last14days.join(' ')}</div>
+        <div className={css.text}>{user.username}</div>
+        <div className={css.text}>{user.email}</div>
+        <div className={css.text}>{yyyymmdd(new Date(user.createdAt))}</div>
+        <div className={css.text}>{user.admin ? 'A' : ''}</div>
+        <div className={css.text}>{user.ranges.length}</div>
+        <div className={css.text}>{user.sessions.length}</div>
+        <div><SmallChart data={last14days} height={20}/></div>
       </div>
       {detailsInView &&
         <div></div>
