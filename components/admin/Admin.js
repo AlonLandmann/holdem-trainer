@@ -19,8 +19,6 @@ export default function Admin() {
  
   if (isLoading || !days || !users) return <p>Loading...</p>
 
-  
-
   return (
     <div className={css.container}>
       {users.map(user => (

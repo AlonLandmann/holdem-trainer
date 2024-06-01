@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import RangeDisplay from '@/components/article/RangeDisplay'
+import RangeDisplay from '@/components/tutorial/RangeDisplay'
 import Navbar from '@/components/common/Navbar'
 import tutorialRanges from '@/db/data/tutorial-ranges.json'
 import useAuth from '@/hooks/useAuth'

@@ -5,7 +5,7 @@ import Legend from '@/components/ranges/Legend'
 import StatsMatrix from '@/components/ranges/StatsMatrix'
 import StatsLegend from '@/components/ranges/StatsLegend'
 import UiButtons from '@/components/ranges/UiButtons'
-import css from '@/scss/article/RangeDisplay.module.scss'
+import css from '@/scss/tutorial/RangeDisplay.module.scss'
 
 export default function RangeDisplay({ user, range }) {
   const [formData, setFormData] = useState(cloneDeep(range))
