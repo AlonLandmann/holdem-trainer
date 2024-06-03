@@ -4,11 +4,7 @@ import css from '@/scss/home/Hero.module.scss'
 
 export default function Hero() {
   const handleTryNow = () => {
-    const demoElement = document.getElementById('demo')
-
-    if (demoElement) {
-      demoElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.open('https://www.youtube.com/watch?v=z6PkfQihrUc', '_blank')
   }
 
   return (
@@ -30,7 +26,7 @@ export default function Hero() {
             Create an account
           </Link>
           <div className={css.tryNowCta} onClick={handleTryNow}>
-            See how it works
+            Watch user guide
           </div>
         </div>
       </div>
